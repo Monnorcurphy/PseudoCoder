@@ -7,4 +7,51 @@
   <h2>Breadth First Search (BFS)</h2>
   <h2>Depth First Search (DFS)</h2>
   <h2>Binary Search</h2>
+
+  Searching
+
+Simple Search/Linear Search
+
+Let’s say that you woke up in the middle of the night and you really needed to talk to someone, but you are a sad lonely pathetic person, and you don’t have anyone to talk to. What would you do? I am asking for a friend.
+
+Well, if it was me, I would go through the phone book, and just call people until someone agreed to talk to me. This is simple search or linear search. It is not terribly efficient, but in this case, there is not much of a better choice.
+
+The phone book does not help me find a person to talk to, or my friend, whatever. Not the point.  In Big O notation, this search method take O(N) time. Which, sometimes is not bad, but it is not always the best.
+
+
+In the section about graphs I discussed BFS and DFS, I am going to do so again here. If you don’t want to read it again, I would skip to the end of the section where I talk about Big O. If you did not read the other post, you are bad, and should feel bad about your life choices.
+
+Breadth First Search and Depth First Search
+Imagine you had friends. Really think about it. Imagine what that would feel like.
+
+Now, what if you wanted to find a peach farmer in your network? Well chances are, you live in a city, and do not know any peach farmers. You could try two approaches.
+
+First, you could go to everyone one of your friends and ask them if they are a peach farmer. Then you could ask all of your friends friends, if any of them were peach farmers, and so on in a fashion like this. This would be ineffective, but it’s probably better than whatever you thought of when you were trying to think of a solution to finding a peach farmer in your imaginary friends network.
+This is called Breadth First Search
+ Another, probably better option, would be to ask a specific friend who you think had a peach farmer in their network. Then ask through their whole network. If they didn’t know any peach farmers, you could ask your next best guess in your direct friend group, asking their friends friends. Ideally, through each iteration would go this way.
+
+
+You —> Bill —> Jim —> Terry
+You—> Bill—> Jim—> Johnny
+
+You are more likely to find a peach farmer this way, since anyone who is close to you is unlike to know many farmers, and therefore their friends are less likely to know one either. So you go as far down the relationship tree as you can, until you hit gold, or peaches. Same thing.
+
+This is called Depth First Search. No one is better than the other when it comes to searching, unless you have a rough idea of where your data is going to be. If you expect the data to be towards the bottom, DFS. If you expect it to be somewhere towards the top, BFS.
+
+The Big O notation is tricky for this one. So we have to make sure we are not visiting nodes twice, since in that case this could take an infinite time period.
+
+Big O would be O(N) where N is the number of nodes.
+ Binary Search
+
+Let’s go back to the phone book example, and change it slightly. Let’s say I was looking for any people named Marky Mark, because I want to make fun of their names. Linear search would be a horrible way to handle this. Because I would be searching through the As, then Bs, etc.  A better solution is to go to the middle of the phone book, if the value is higher than M, I would flip halfway towards the front, then halfway from there, and so on.  In this way I am cutting the value of the input size by half every time. So
+
+N/2 N/4 + N/8….etc.
+
+For those of you who are not inclined to math, probably should just quit everything you are doing and become a monk. Just a suggestion.
+
+That pattern is a logarithmic. Which is cool and stuff, because of math. Go look up logarithms, and learn about them. If anyone wants, I will try to explain that.
+
+
+
+
 </div>
