@@ -9,4 +9,115 @@
   <h2>Heap sort</h2>
   <h2>Radix</h2>
   <h2>A* (A Star, just like you aren't)</h2>
+
+  not finished- quick sort
+
+Sorting
+
+For all sorting we are going to imagine that you are trapped in a prison at the bottom of the ocean, because that is where all of you, and your friends belong.
+
+Now all of you have escaped and managed to get to a cannon. *booooo* *hissssss* The only way to fire the cannon is to increase the power based on the weight of the person getting in, and powering it up is faster than lowering the power. So, you have to send everyone up in weight order. Everyone is in a line, but it is out of order and they look to you for help. What do you do?
+
+Bubble Sort (keep iterating)
+If you managed to think quickly, it might only take you half a day to come up with this idea. You are going going to go up to every person. If they weigh less than the person next to them, I will push them up towards the front, until they are where they are supposed to be. Because you are a fool, you have to go through one final time to make sure everyone is in correct order.
+
+This, is bubble sort. Congrats! You wasted most of the day to come up with one of the most inefficient sorting algorithms. I hope you and your ilk are thrown back in prison.
+
+The Big O, in fact the BEST CASE, of this is N^2, so bad. Like real bad. Like give up and live in a nature, don’t go near a computer. You are bad. Stop.
+
+It is possible to modify bubble sort so that it stops when it is fully sorted, which means, in the best case it goes to O(N), but it remains a Big O of N^2.
+
+Selection sort
+
+Let’s say you decide that your other method is no good. Drats, you might actually escape. But, thankfully for the prison guards, your next go to method is this. You go through all of your friends, finding the lowest weight, and placing them at the front. And you continue to do this until everyone is in the right order.  Slightly more efficient, since you don’t have to go through every friend one last time at the end (like bubble sort) and, you are only searching a smaller group of friends. Since the friends at the beginning already belong there, you don’t need to search them again.
+
+The Big O notation of this would still be O(N^2)
+
+
+Insertion Sort
+
+Abandoning those two ideas as fruitless, you exclaim to your friends ‘I HAVE GOT IT!’ and propose the following. You realize that what made you fixed version of bubble sort faster was the fact that larger and larger parts of the line were already sorted. So, you decide to insert each person where they belong in line. You start at the second person, and compare them to the first. Doing this over and over again until everyone is in the right place.
+
+Since the first two are sorted, then the first three, then first four, all you have to do is put everyone in their place.
+
+Your friends would, hopefully, realize that friendship with you is a waste of time and elect a new sorting leader.
+
+The Big O notation of this solution would take O(N^2)
+
+Heap Sort
+
+*Stop* If you don’t know what a heap is, go to the data structures page.*Continue*
+
+A brief refresher (since I am sure NO ONE will not know what a heap is, but everyone likes a nice reminder). Heaps are semi-sorted piles of numbers. The are either max heaps (biggest values on top) or min heaps (smaller values on top). There is not guarantee of sorting, so just because you have 100 at the top of a heap, doesn’t mean 99, 98, or any numbers above 10 are in the heap. It just means 100, is on top, and is the largest value (max heap).  Again, because it matters, overtime you add a value to a heap, you have to adjust the heap until it is in the right spot. That, is what we are about to talk about.
+
+Since heaps are always numbers, there isn’t really a analogous way to talk about them. In a max heap, the highest value is on top, the two values below this value (the children nodes) are lower than the top value, and are greater than their children, and so on. This means, that as you go further down, you are going to find lower values. So, what if you want to add a value to a max heap? Easy, you add the value to to the top, pushing the current top value to down to the right or left.
+
+Now, you sort the heap, which looks like this. You compare the top value to it’s two children. If it is larger, you are done. If not, you pick the greater of the two children, put it on top. You then compare the new spot where the node is, against its two new children. You continue to do this, swapping the values, until everything is in the proper place.
+
+Min heaps work the same way, just with minimum values. You can also add values to the bottom, and reverse it.  Now, how long does this process take. Well in Big O, n log n. But so it’s its Big Theta. Which makes it not the best n log n sorting algorithm. It is also not stable. For more about that, check out these resources.
+
+Merge sort-
+
+Imagine you had to sort three hundred tickets to a ball, that you weren’t invited to…again. Well, no worries, maybe if you sort this very efficiently, you can go to the ball this year, because everyone will be so impressed.
+
+What you do is, divide half the tickets into two piles each, then divide those piles into halves, and so on, until each pile has one ticket. You then sort the piles of tickets by comparing piles of one against other piles of one. So, you have ticket 205 and ticket 40. Ticket 40 goes first, then ticket 205. You do this for all piles of one until you have half as many piles of two. Now, you do the same problem again for the piles of two. But, all the tickets are already sorted, making it much easier.
+
+So you look at the first ticket in each pile, then compare their values. Put the lowest value in first, then the next greatest value, doing this all the way up until you have sorted all 300 tickets.
+
+So, how long do you think this solution would take?
+
+
+If you thought  a Big O of n log n, then you are wrong! It’s a Big o of n log n, you silly goose. The above implementation I explained is actually the “worse” merge sort. If you would like to know the better one, it will have it’s own page which you can look at.
+
+Quick sort
+
+…read more on this one
+
+
+Radix sort
+
+Radix sort is the idea that you can sort numbers, by just looking at parts of the number, or whatever you are sorting, rather than the whole thing at once. There are two types of radix sort, each of which are better for different things.
+
+LSD- Least significant digit, not the drug one. This is typically more useful for numbers. You start at the end of every thing you are sorting, putting them in order. Like so:
+
+	   compare                  compare                  compare
+941 —> 1    THEN	941 —> 4  THEN	941 —> 9
+573 —> 3   		573—> 7  		573—> 5
+465—> 5			465 —> 6		465 —> 4
+
+This is advantageous when you are comparing numbers of different sizes (1, 435, etc.) There is another way to do Radix, MSD or most significant digit.
+
+Most significant digit is actually typically used for words, since radix sort sorts everything by value, and then lexicographically. What that means is this:
+
+a —> ab —> abc —>b
+
+This is because b is greater in value than nothing, and c is greater in value than nothing. But, because of the beginning letter (a), they still come before b. You don’t want to sort numbers lexicographically though, since it would end up like this:
+
+1 —> 10 —> 2
+
+
+Dijikstra’s
+
+Let’s talk about maps. We could choose a lot of companies like….Apple.
+
+Alright, enough jokes. Google does maps, and unlike some they are quite good at it. How do they solve the issue of determining the shortest path from one place to another? Or the shortest time?  So, what you do is calculate the distance to each point individually. Each point that you have yet to reach is infinity distance away. When you reach a new node, you replace the existing value, if the value you calculated to reach it is shorter. Here is how it would work.
+
+Let’s say you started at point A, and you needed to get to point New York, because that punk Chris owes you money.  You could go from:
+A to B to New York
+or
+A to  C to B to New York.
+
+Here is how you would calculate. First, one step. From A to B or A to C. If the distance from A to B is 10, and the distance from A to C is 5, then you put in those values. Shortest distance from A to B goes from infinity, to 10, and from A to C goes to 5. Now, the next step. From B to NY is 48. From C to B is 3. 
+The shortest distance to NY is set to 58, the shortest distance to B goes to 8. Now, the last step goes from B to NY, which goes from 58 to 56.  This is Dijikstra’s algorithm. There are different variants of it. Some forms only calculate the distance between two points. The one I just explained assumed A was the source, and then calculates the distance to every node. Updating as it goes along.
+
+A*
+
+Similar to Dijikstra’s, we could image that we must compute the lowest distance between two nodes. But instead of traveling through all the nodes, we take guesses at how to best reach our destination.  We must know our staring position, and our ending position, which we do, A —> New York. Now, we calculate the distance between our points, and the points distance from New York. And try to take the best path based on that.  You can see the assumptions this makes, we have to know which way is closer to NY, but can you see the issues. What if the next spot is closer, but there are obstructions which inhibit the travel from the closer point.
+
+Let’s say from A to B or A to C, B is closer to New York, but you have to drive around some mountains, making the overall distance longer. A star is efficient at calculating the lowest distance between two points, but it requires some knowledge (distance between nodes) and has some dangerous assumptions.
+
+
+
+
+
 </div>
