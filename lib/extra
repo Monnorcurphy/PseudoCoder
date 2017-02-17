@@ -1,0 +1,8 @@
+area of a polygon
+
+Formula to find the area with points A, B, and C (let’s assume C is the origin):
+
+(X coordinate of A * Y coordinate of B - Y coordinate of A * X coordinate of B)
+/2
+
+Make sure you take the absolute value, since it can be negative in certain cases
