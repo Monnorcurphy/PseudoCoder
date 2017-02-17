@@ -27,22 +27,62 @@ The Big O, in fact the BEST CASE, of this is N^2, so bad. Like real bad. Like gi
 
 It is possible to modify bubble sort so that it stops when it is fully sorted, which means, in the best case it goes to O(N), but it remains a Big O of N^2.
 
+In code
+
+def bubble_sort(array):
+  sorted = False
+  while not sorted:
+    sorted = True
+    i = 0
+
+    while i < len(array) - 1:
+      if array[i]> array[i+ 1]:
+        array[i], array[i + 1] = array[i + 1],array[i]
+        sorted = False
+        i+= 1
+
+      else:
+        i+= 1
+
+  return array
+
+
 Selection sort
 
-Let’s say you decide that your other method is no good. Drats, you might actually escape. But, thankfully for the prison guards, your next go to method is this. You go through all of your friends, finding the lowest weight, and placing them at the front. And you continue to do this until everyone is in the right order.  Slightly more efficient, since you don’t have to go through every friend one last time at the end (like bubble sort) and, you are only searching a smaller group of friends. Since the friends at the beginning already belong there, you don’t need to search them again.
+Let’s say you decide that your other method is no good. Drats, you might actually escape. But, thankfully for the prison guards, your next go to method is this. You go through all of your friends, finding the lowest weight, and placing them at the front. And you continue to do this until everyone is in the right order.   Slightly more efficient, since you don’t have to go through every friend one last time at the end (like bubble sort) and, you are only searching a smaller group of friends. Since the friends at the beginning already belong there, you don’t need to search them again.
 
 The Big O notation of this would still be O(N^2)
 
+def selection_sort(array):
+  low = None
+  result = []
+  while len(array) > 0:
+    i = 0
+    while i < len(array):
+      if low is None or low > array[i]:
+        low = array[i]
+      i += 1
+
+    result.append(low)
+    array.remove(low)
+    low = None
+
+  return result
+
+
+print selection_sort([3,2,4,6,1,5, 10, 100, 49, 39, -2])
 
 Insertion Sort
 
-Abandoning those two ideas as fruitless, you exclaim to your friends ‘I HAVE GOT IT!’ and propose the following. You realize that what made you fixed version of bubble sort faster was the fact that larger and larger parts of the line were already sorted. So, you decide to insert each person where they belong in line. You start at the second person, and compare them to the first. Doing this over and over again until everyone is in the right place.
+Abandoning those two ideas as fruitless, you exclaim to your friends ‘I HAVE GOT IT!’ and propose the following. You realize that what made selection sort faster was the fact that larger and larger parts of the line were already sorted. So, you decide to insert each person where they belong in line. You start at the second person, and compare them to the first. Doing this over and over again until everyone is in the right place.
 
 Since the first two are sorted, then the first three, then first four, all you have to do is put everyone in their place.
 
 Your friends would, hopefully, realize that friendship with you is a waste of time and elect a new sorting leader.
 
 The Big O notation of this solution would take O(N^2)
+
+
 
 Heap Sort
 
@@ -68,6 +108,38 @@ So, how long do you think this solution would take?
 
 
 If you thought  a Big O of n log n, then you are wrong! It’s a Big o of n log n, you silly goose. The above implementation I explained is actually the “worse” merge sort. If you would like to know the better one, it will have it’s own page which you can look at.
+
+in code
+
+def merge_sort(array):
+  if len(array) <= 1: return array
+  length = len(array) - 1
+  left = merge_sort(array[:length])
+  right = merge_sort(array[length:])
+
+  return sorting(left, right)
+
+
+def sorting(arr1, arr2):
+  result = []
+  while len(arr1) > 0 and len(arr2) > 0:
+    if arr1[0] < arr2[0]:
+      result.append(arr1[0])
+      del(arr1[0])
+    else:
+      result.append(arr2[0])
+      del(arr2[0])
+
+  for el in arr1:
+    result.append(el)
+
+  for el in arr2:
+    result.append(el)
+
+  return result
+
+
+print merge_sort([1,10,5,4,2,3])
 
 Quick sort
 
