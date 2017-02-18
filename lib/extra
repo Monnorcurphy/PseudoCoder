@@ -6,3 +6,26 @@ Formula to find the area with points A, B, and C (let’s assume C is the origin
 /2
 
 Make sure you take the absolute value, since it can be negative in certain cases
+
+
+
+
+going through a graph
+
+
+You can go through a graph in pre, in, or post order. What does that mean?
+
+For pre order, you go from the root, to the left node, to the right node.
+
+For in order you go from the left, to the root, to the right node.
+
+For post order you go from the left, to the right, to the root.
+
+All three of these traversal methods are DFS (Depth First Search)
+
+You don't need to memoize when you are going through a tree because there is only
+one path to any given node. If there is more than one path to a node, that means
+there is a cycle, and it is therefore a graph.
+
+
+DFS should be written recursively, BFS should be written iteratively.
