@@ -52,6 +52,87 @@ For those of you who are not inclined to math, probably should just quit everyth
 That pattern is a logarithmic. Which is cool and stuff, because of math. Go look up logarithms, and learn about them. If anyone wants, I will try to explain that.
 
 
+class Node:
+
+  def __init__(self, value,parent = None, children = None):
+    self.value = value
+    self.children = children
+    self.parent = parent
+
+
+a = Node(10)
+b = Node(5)
+c = Node(14)
+d = Node(15)
+
+a.children=[b,c]
+b.parent= a
+c.parent = a
+c.children= [d]
+d.parent= b
+
+
+def dfs(head, value):
+  if head.children is None: return head.value == value
+  found = False
+
+  for child in head.children:
+    if found == False:
+      found= dfs(child, value)
+
+  if head.value == value or found== True:
+    found = True
+    return found
+
+  return found
+
+
+
+bfs
+
+class Node:
+
+  def __init__(self, value,parent = None, children = None):
+    self.value = value
+    self.children = children
+    self.parent = parent
+
+
+a = Node(10)
+b = Node(5)
+c = Node(14)
+d = Node(15)
+
+a.children=[b,c]
+b.parent= a
+c.parent = a
+c.children= [d]
+d.parent= b
+
+
+def bfs(head, value):
+  if head.value is value: return True
+
+  search = []
+  for child in head.children:
+    search.append(child)
+
+  while search:
+    if search[0].value == value:
+      return True
+    elif search[0].children:
+      for child in search[0].children:
+        search.append(child)
+      search.pop(0)
+    else:
+      search.pop(0)
+
+  return False
+  
+
+
+
+
 
 
 </div>
