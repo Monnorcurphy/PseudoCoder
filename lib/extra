@@ -1,37 +1,3 @@
-area of a polygon
-
-Formula to find the area with points A, B, and C (let’s assume C is the origin):
-
-(X coordinate of A * Y coordinate of B - Y coordinate of A * X coordinate of B)
-/2
-
-Make sure you take the absolute value, since it can be negative in certain cases
-
-
-
-
-going through a graph
-
-
-You can go through a graph in pre, in, or post order. What does that mean?
-
-For pre order, you go from the root, to the left node, to the right node.
-
-For in order you go from the left, to the root, to the right node.
-
-For post order you go from the left, to the right, to the root.
-
-All three of these traversal methods are DFS (Depth First Search)
-
-You don't need to memoize when you are going through a tree because there is only
-one path to any given node. If there is more than one path to a node, that means
-there is a cycle, and it is therefore a graph.
-
-
-DFS should be written recursively, BFS should be written iteratively.
-
-
-
 Answers for google stuff
 
 What is the difference between top down and bottom up?
@@ -302,12 +268,38 @@ Multi-core concurrency is referred to as Scale up, and distributed computing is 
 Scaling up is the process of making a computer more and more workload, while scaling out is getting more computers to handle the problem.   Scaling up is cheaper, but is more risky.
 
 
-SQL vs NoSQL:
+SQL, NoSQL, and serverless:
 Sql is a relational database
 
 
-How the internet works
+What is MVC?
 
+Model, view, controller. The model level is the one which holds the data. A controller sends commands to the model, or to the view to change the presentation of the model/data. The view is any output representation of information, i.e. char or diagram.
+
+A Star?
+
+An informed search algorithm for path-finding. It uses the advantages of Dijkstra’s (finding the shortest path) and Best First Search. It does this by using a guide to determine the best next point (based on the current/starting point) and the next best point (based on the goal end point).
+
+
+How do you represent binary in python?
+
+
+Objects and pointers, matrix, and adjacency list?
+
+
+
+features sets,
+interfaces,
+
+class hierarchies,
+
+distributed systems,
+designing a system under certain constraints,
+simplicity,
+limitations,
+robustness and tradeoffs.
+
+How the internet works- Talk about this points(routers, domain name servers, load balancers, firewalls)? 
 Everything that accesses the internet has an Internet Protocol address. You connect to the internet through an ISP, which gives you an IP address that is unique.
 
 TCP/IP protocol stack. Your signal goes from an application, to the TCP (directs packets to a specific application on a computer), to the IP (directs packets to a specific computer using an IP address) which goes to the hardware (converts binary packet data to network signals…and back).
@@ -325,14 +317,60 @@ Domain Name Service is a distributed database which keeps track of computer’s 
 HTTP and the WWW- HTTP is the protocol that web browsers and servers use to communicate with one another, not to be confused with HTML which is used to write web pages. When you type a url into a page, you ping the DNS server, it finds the page, requests something from the web server (a continually connected computer). The web server responds, or you get 404ed.
 
 TCP receives packets, and makes sure they are in the correct order, IP does not do this. It just sends things wherever, and in any order.
+ Firewalls are a network security system which controls the incoming/outgoing traffic, based on some predetermined rules. Firewalls can either be network based, or host based. They can also be software based or hardware based.
 
+Network based firewalls can be WAN or LAN based (Local Area Network, or Wide Area Network). They are often daemon, services integrated into the operating system, or endpoint security protection.
 
+They can be network layer, application layer, proxies, or network address translation. Network layer means they monitor packets, and are only allowed past if they follow certain predefined rules.
 
+Application layer firewalls look at packets received and sent monitoring them for content. They work by determining if a process should accept a connection.
 
+Proxies act as firewalls by responding to input packets (like connection requests) as an application firewall.
 
+Reverse Proxy- Retrieves resources on behalf of a client from one or more servers, and returns the information as if the proxy had the information. They can be useful to stop DDos. Can also spread out the load amongst multiple servers so that no one server gets overloaded, and can compress content.
 
+Denial of service attacks- Are attacks by flooding a sites/companies infrastructure in different ways. Usually it involves illegitimate users requesting information so that legitimate users cannot access their content. Ddos use botnets, because they require a lot of computing power, while DOS usually involves only one person using a script of some sort.
 
+Network Address Translation - A method of remapping one IP address space into another, to hide a member or network.
 
+IP address spoofing- creation of IP packets with a false IP address in order to hide the identity of a sender, can be accomplished by using a proxy server.
 
+Daemon is a computer program that runs as a background process, and to distinguish themselves they end in d, usually. This term comes from Maxwell’s Demon (The one which breaks the second law of thermodynamics), and has no morality (like Christian Demons, it is a Greek demon).
 
-  
+DHCP- Dynamic Host Configuration Protocol is way to designate IP addresses, interfaces, and services. It reduces the need for a network administrator.
+
+VPN, a virtual private network, can be used for things like an employee accessing a company’s intranet, or to get around geo-restrictions and censorship. VPNs work by going through a series of dedicated connections (point to point, like a child’s tin can), virtual tunneling, or traffic encryption.
+
+Tunneling protocol- allows a user to access or provide a service. Works by having the data portion of a packet (payload) carry the packets that actually provide the service.
+
+Endpoint security - means that devices follow a definite level of compliance and standards.
+
+Layered Security - combining multiple security controls for protection. The idea is to slow down attackers, consuming time, until the security resources can be brought against the attacker.
+
+Load balancing seeks to maximize throughput, minimize response time, and avoid overload of a single resource. Load balancing is usually achieved through a multilayer switch or a Domain Name System(DNS). Divides traffic between network interfaces on a network socket. (OSI 4 or layer 7(HTTP)).
+
+Round robin- multiple IP addresses are associated with a single domain and clients are given ip for a limited time.
+
+DNS Delegation- Depending on where the domain comes from, the load balancer will ping the server, and send the traffic to the best server. Generally, this is going to be the server which is geographically closest, but in the case that it isn’t, a different server can serve up the information.
+
+Client side- The clients are given a list of ips, and the client selects which one they would like. It is argued this approach is better than round robin because of caching issues with the round robin approach. In the case a server is down, i
+
+Channel bonding implies a division of traffic between physical interfaces at a lower level. (OSI 2 or 3) Usually involves communication between networks and operating systems.
+
+DNS- naming system for computers, services, or other resources connected to the internet.  It delegates the responsibility of assigning domain names, and mapping those names to servers. It is written in ASCII, which is troublesome for internationalized domain names, which brought about IDNA which maps unicode strings to valid ins characters.
+
+Multi-layer switch- a computer device that switches on different OSI layers.
+
+OSI- a computing model for transferring data. It is made up of 7 layers, including physical, data link, network, transport, session, presentation, application.
+
+URL- Uniform Resource Locators
+
+Throughput- maximum rate at which something can be produced or processed.
+
+The network throughput is the rate of successful message delivery over a communication channel.
+
+The system throughput- sum of the data rates that are delivered to all terminals.
+
+Throughput can be affected by the physical medium, processing power, and end-user behavior.
+
+Latency-  time delay between the cause and effect of some physical change. Latency can never be faster than the speed of light, because of physics.
