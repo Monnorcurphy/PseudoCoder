@@ -374,3 +374,23 @@ The system throughput- sum of the data rates that are delivered to all terminals
 Throughput can be affected by the physical medium, processing power, and end-user behavior.
 
 Latency-  time delay between the cause and effect of some physical change. Latency can never be faster than the speed of light, because of physics.
+
+For Amazon
+file:///Users/Monnorcurphy/Downloads/Amazon%20Leadership%20Principles.pdf
+
+
+memory management
+
+processes
+
+threads
+
+synchronization
+
+paging
+
+multithreading
+
+JavaScript
+
+Recursion
