@@ -4,23 +4,6 @@
     border-right: 2px solid black;
 }
 
-
-.red{
-  background: #f84b4b;
-}
-
-.blue{
-  background: #131b57
-}
-
-.orange{
-  background: #fabd4d;
-}
-
-.purple{
-  background: #591859;
-}
-
 .bright{
   color: black
 }
@@ -64,18 +47,44 @@ li{
   padding-bottom: 15px;
 }
 
-
-li.chapter.yellow{
+.yellow{
   background: #16A085; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #16A085 , #F4D03F); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #16A085 , #F4D03F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-li.chapter.green{
-  background: #16A085; /* fallback for old browsers */
+.green{
+  background: #3d8ff4; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #16A085, #3d8ff4); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #16A085, #3d8ff4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
+.blue{
+  background: #b846f2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #b846f2, #3d8ff4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #b846f2, #3d8ff4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.red{
+  background: #f9363d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #b846f2, #f9363d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b846f2, #f9363d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.orange{
+  background: #ea8533; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f9363d, #ea8533); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f9363d, #ea8533); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.purple{
+  background: #ea8533; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #F4D03F, #ea8533); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #F4D03F, #ea8533); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
 
 .main-button{
   border: 3px solid black;

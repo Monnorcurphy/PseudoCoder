@@ -15,7 +15,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font-family: 'Rajdhani', sans-serif;
+	font-family: sans-serif;
 	font: inherit;
 	vertical-align: baseline;
   text-decoration: none;
@@ -26,12 +26,12 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
-	font-family: 'Rajdhani', sans-serif;
+	line-height:140%;
+	font-family: sans-serif;
 }
 
 *{
-	font-family: 'Rajdhani', sans-serif;
+	font-family: sans-serif;
 }
 
 li.chapter{
@@ -67,11 +67,12 @@ h2{
 }
 
 h4{
-
+	background: whitesmoke;
   font-size: 2.2vw;
   padding: 20px;
 }
 p{
   padding: 20px;
 	font-size: 20px;
+
 }
