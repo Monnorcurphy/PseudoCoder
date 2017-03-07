@@ -1,0 +1,22 @@
+.table-of-contents{
+    background: black;
+    color: white;
+    width: 30%;
+    height: 100%;}
+
+.chapter{
+  padding: 10px;
+}
+
+li > a{
+  color: white;
+  padding: 10px;
+  width: 80%;
+  margin: 20px;
+}
+
+
+.main{
+  width: 100%;
+  display: inline-flex;
+}
