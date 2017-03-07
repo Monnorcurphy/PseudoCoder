@@ -2,10 +2,49 @@
     background: black;
     color: white;
     width: 30%;
-    height: 100%;}
+}
 
-.chapter{
-  padding: 10px;
+.yellow{
+  background: #ffff6f;
+  color: black;
+}
+
+.green{
+  background: #134f13;
+}
+
+.red{
+  background: #f84b4b;
+}
+
+.blue{
+  background: #131b57
+}
+
+.orange{
+  background: #fabd4d;
+}
+
+.purple{
+  background: #591859;
+}
+
+.bright{
+  color: black
+}
+
+.white{
+  background: white;
+}
+
+.subset{
+  width: 65%;
+  margin: 0;
+  margin-left: 30px;
+  border-style: double;
+  border-top-width: 1px;
+  border-color: black;
+  padding: 20px;
 }
 
 li > a{
@@ -13,6 +52,11 @@ li > a{
   padding: 10px;
   width: 80%;
   margin: 20px;
+}
+
+li{
+  margin: 40px 10px 0px 10px;
+  padding: 20px;
 }
 
 
