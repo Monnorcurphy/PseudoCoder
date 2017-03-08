@@ -2,7 +2,7 @@
   <title>Algorithm's</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href=".././assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href=".././assets/css/efficiency.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/architechture.css">
   <link rel="stylesheet" type="text/css" href=".././assets/css/navigation.css">
 
 </head>
@@ -10,39 +10,81 @@
 <div>
   <div class = 'main'>
     <div class='table-of-contents'>
-      <nav id="contents">
-        <ul class="links">
+			<nav id="contents">
+				<ul class="links">
 
+          <div class="support">
           <li class="Chapter white">
-            <a href="../index.html" class='bright'>Main</a>
+            <a href="../index.html" class='bright main-button'>Main</a>
           </li>
-          <li class="Chapter yellow">
-            <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
-          </li>
+            <li class="Chapter white"><a href="../about.html" class='bright main-button'>About</a></li>
+          </div>
+					<li class="Chapter yellow">
+						<a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
+					</li>
 
-          <li class="Chapter green"><a href="data_structures.html">Ch 2: Data Structures </a></li>
+					<li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter red"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
+					<li class="Chapter blue"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
 
-          <li class="Chapter blue"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
+	        <li class="Chapter red"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
 
-          <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
+	        <li class="Chapter orange"><a href="architechture.html" class='bright'>Ch 5: Architechture</a></li>
 
-          <li class="Chapter purple"><a href="">Glossary</a></li>
+              <li class="Chapter orange subset">
+                <a href="terminology.html" class='bright'>1.1 Terminology</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="internet.html" class='bright'>1.2 The Internet</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="first-half.html" class='bright'>1.3 Distributed Systems</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="second-half.html" class='bright'>1.3 ohter stuff</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="summary.html" class='bright'>1.4 Summary</a>
+              </li>
 
-        <li class="Chapter white"><a href="../about.html" class='bright'>About the Author</a></li>
+	        <li class="Chapter purple"><a href="">Glossary</a></li>
 
-        </ul>
-      </nav>
-    </div>
+	  	    </ul>
+			</nav>
+		</div>
   <div class= 'right-text'>
-  <h1>Data Structures</h1>
+
   <h2>Array- A Single File Line</h2>
-  <h2>Dictionary/Hash- Teachers in a Room</h2>
-  <h2>Linked Lists- People Call Their Neighbors</h2>
-  <h2>Queues- Just Like a Cafeteria Line</h2>
-  <h2>Stacks- Privelege, the Data Structure</h2>
-  <h2>Graphs- Human Interactionx</h2>
+  <h4>St7urf</h4>
+  <p>
+  What is the difference between top down and bottom up?
+
+  Top down- you start at the top and break the problem down until you are at the base level. Top down cannot be coded until the whole problem is understood, but this gives the problem a clear direction.
+
+  Memoization is a key feature of the top down approach. You track the work that you have already done, and cache those values. If you have a cached value, then you use the pre computer answer.
+
+  Bottom up- you start with small examples and build these examples up into larger and larger parts. You can begin programming bottom up problems immediately, but can cause a problem if you don’t know how the problems are going to fit together.
+
+  Dynamic programming is the process of picking what order your computations will go in, and working these values into the future of the algorithm.
+
+
+  Show me the formula to determine a team of 11 people, out of 14 choices?
+
+  If you have a team of 14 people, with only 11 open spots, how many possibilities are there?
+
+  n!/ k!(n -k)!
+
+  Why? What does that mean? Go through it one by one.
+
+  In the first choice you have n options, then n -1, and so on.
+
+  After we have selected a number of players, we have n - i choices left.
+
+  What is that n-k! doing on the bottom? Order does not matter, unlike in other problems. Because a team with Johnson and Briggs, is the same as a team with Briggs and Johnson.
+
+  </p>
+  <p>
+  </p>
   </div>
 </div>
 </body>

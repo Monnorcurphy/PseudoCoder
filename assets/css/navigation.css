@@ -4,16 +4,8 @@
     border-right: 2px solid black;
 }
 
-.bright{
-  color: black
-}
-
-.white{
-  background: white;
-}
-
 .subset{
-  width: 65%;
+  width:70%;
   margin: 0;
   margin-left: 30px;
   border-style: double;
@@ -84,8 +76,15 @@ li{
   background: linear-gradient(to left, #F4D03F, #ea8533); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.white{
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #000000 , #434343); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #000000 , #434343); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 
 
 .main-button{
-  border: 3px solid black;
+
 }

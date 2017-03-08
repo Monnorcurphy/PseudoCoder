@@ -1,0 +1,160 @@
+<head>
+  <title>Algorithm's</title>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/searching.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/navigation.css">
+
+</head>
+<body>
+<div>
+  <div class = 'main'>
+    <div class='table-of-contents'>
+      <nav id="contents">
+        <ul class="links">
+
+          <div class="support">
+          <li class="Chapter white">
+            <a href="../index.html" class='bright main-button'>Main</a>
+          </li>
+            <li class="Chapter white"><a href="../about.html" class='bright main-button'>About</a></li>
+          </div>
+          <li class="Chapter yellow">
+            <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
+          </li>
+
+          <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
+
+          <li class="Chapter blue"><a href="searching.html" class='bright'>Ch 3: Searching</a></li>
+
+              <li class="Chapter blue subset">
+              <a href="terminology.html" class='bright'>1.1 Terminology</a>
+            </li>
+            <li class="Chapter blue subset">
+            <a href="simple-search.html" class='bright'>1.2 Simple Search</a>
+          </li>
+          <li class="Chapter blue subset">
+          <a href="bfs-dfs.html" class='bright'>1.3 Graph Search</a>
+          </li>
+        <li class="Chapter blue subset">
+          <a href="summary.html" class='bright'>1.4 Summary</a>
+          </li>
+
+          <li class="Chapter red"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
+
+          <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
+
+          <li class="Chapter purple"><a href="">Glossary</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  <div class= 'right-text'>
+    <h2>Graph Search</h2>
+  <h4>BFS</h4>
+    <p>Breadth First Search and Depth First Search
+    Imagine you had friends. Really think about it. Imagine what that would feel like.
+
+    Now, what if you wanted to find a peach farmer in your network? Well chances are, you live in a city, and do not know any peach farmers. You could try two approaches.
+
+    First, you could go to everyone one of your friends and ask them if they are a peach farmer. Then you could ask all of your friends friends, if any of them were peach farmers, and so on in a fashion like this. This would be ineffective, but it’s probably better than whatever you thought of when you were trying to think of a solution to finding a peach farmer in your imaginary friends network.
+    This is called Breadth First Search
+     Another, probably better option, would be to ask a specific friend who you think had a peach farmer in their network. Then ask through their whole network. If they didn’t know any peach farmers, you could ask your next best guess in your direct friend group, asking their friends friends. Ideally, through each iteration would go this way.
+
+
+    You —> Bill —> Jim —> Terry
+    You—> Bill—> Jim—> Johnny
+
+    You are more likely to find a peach farmer this way, since anyone who is close to you is unlike to know many farmers, and therefore their friends are less likely to know one either. So you go as far down the relationship tree as you can, until you hit gold, or peaches. Same thing.
+
+    This is called Depth First Search. No one is better than the other when it comes to searching, unless you have a rough idea of where your data is going to be. If you expect the data to be towards the bottom, DFS. If you expect it to be somewhere towards the top, BFS.
+
+    The Big O notation is tricky for this one. So we have to make sure we are not visiting nodes twice, since in that case this could take an infinite time period.
+
+    Big O would be O(N) where N is the number of nodes.
+     </p>
+  <h4>DFS</h4>
+    <p>
+
+
+      class Node:
+
+        def __init__(self, value,parent = None, children = None):
+          self.value = value
+          self.children = children
+          self.parent = parent
+
+
+      a = Node(10)
+      b = Node(5)
+      c = Node(14)
+      d = Node(15)
+
+      a.children=[b,c]
+      b.parent= a
+      c.parent = a
+      c.children= [d]
+      d.parent= b
+
+
+      def dfs(head, value):
+        if head.children is None: return head.value == value
+        found = False
+
+        for child in head.children:
+          if found == False:
+            found= dfs(child, value)
+
+        if head.value == value or found== True:
+          found = True
+          return found
+
+        return found
+
+
+
+      bfs
+
+      class Node:
+
+        def __init__(self, value,parent = None, children = None):
+          self.value = value
+          self.children = children
+          self.parent = parent
+
+
+      a = Node(10)
+      b = Node(5)
+      c = Node(14)
+      d = Node(15)
+
+      a.children=[b,c]
+      b.parent= a
+      c.parent = a
+      c.children= [d]
+      d.parent= b
+
+
+      def bfs(head, value):
+        if head.value is value: return True
+
+        search = []
+        for child in head.children:
+          search.append(child)
+
+        while search:
+          if search[0].value == value:
+            return True
+          elif search[0].children:
+            for child in search[0].children:
+              search.append(child)
+            search.pop(0)
+          else:
+            search.pop(0)
+
+        return False</p>
+
+  </div>
+</div>
+</body>

@@ -2,7 +2,7 @@
   <title>Algorithm's</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href=".././assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href=".././assets/css/efficiency.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/architechture.css">
   <link rel="stylesheet" type="text/css" href=".././assets/css/navigation.css">
 
 </head>
@@ -10,39 +10,217 @@
 <div>
   <div class = 'main'>
     <div class='table-of-contents'>
-      <nav id="contents">
-        <ul class="links">
+			<nav id="contents">
+				<ul class="links">
 
+          <div class="support">
           <li class="Chapter white">
-            <a href="../index.html" class='bright'>Main</a>
+            <a href="../index.html" class='bright main-button'>Main</a>
           </li>
-          <li class="Chapter yellow">
-            <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
-          </li>
+            <li class="Chapter white"><a href="../about.html" class='bright main-button'>About</a></li>
+          </div>
+					<li class="Chapter yellow">
+						<a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
+					</li>
 
-          <li class="Chapter green"><a href="data_structures.html">Ch 2: Data Structures </a></li>
+					<li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter red"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
+					<li class="Chapter blue"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
 
-          <li class="Chapter blue"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
+	        <li class="Chapter red"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
 
-          <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
+	        <li class="Chapter orange"><a href="architechture.html" class='bright'>Ch 5: Architechture</a></li>
 
-          <li class="Chapter purple"><a href="">Glossary</a></li>
+              <li class="Chapter orange subset">
+                <a href="terminology.html" class='bright'>1.1 Terminology</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="internet.html" class='bright'>1.2 The Internet</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="first-half.html" class='bright'>1.3 Distributed Systems</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="second-half.html" class='bright'>1.3 other stuff</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="summary.html" class='bright'>1.4 Summary</a>
+              </li>
 
-        <li class="Chapter white"><a href="../about.html" class='bright'>About the Author</a></li>
+	        <li class="Chapter purple"><a href="">Glossary</a></li>
 
-        </ul>
-      </nav>
-    </div>
+	  	    </ul>
+			</nav>
+		</div>
   <div class= 'right-text'>
-  <h1>Data Structures</h1>
+
   <h2>Array- A Single File Line</h2>
-  <h2>Dictionary/Hash- Teachers in a Room</h2>
-  <h2>Linked Lists- People Call Their Neighbors</h2>
-  <h2>Queues- Just Like a Cafeteria Line</h2>
-  <h2>Stacks- Privelege, the Data Structure</h2>
-  <h2>Graphs- Human Interactionx</h2>
+  <h4>Terms</h4>
+  <p>What is a Process? How do multitasking, threads work?
+
+  A process is a computer program that is being executed. Depending on OS, a process can have multiple threads of execution, some of which are executed concurrently.
+
+  Multitasking allows process to share processors (CPUs) and other resources. Each CPU executes a task, but multitasking allows processes to share processors. When a processor is handling multiple processes, it is switching.
+
+  Switches happen when tasks preform input/output operations*, a task indicates it can be switched, or hardware interrupts*.
+
+  Input/output (I/O)- the communication between an information processing system (i.e.- computer) and the outside world (a human, or other processing system). Input- signals or data received by the system, output are the signals or data sent out.  Input devices - keyboard, mouse
+  Output devices- Monitors, printers
+
+  Hardware interrupts- a signal to the processor indicating an event needs immediate attention. The processor responds by saving state and executing an interrupt handler. interrupts can be either hardware or software interrupts.
+
+  Hardware interrupts- Can be things like key presses, or mouse moving. Hardware interrupts are asynchronous and can occur in the middle of an execution.
+
+  Software interrupt- Either exceptional conditions (like diving by 0) or a special instruction which causes an interrupt when it is executed (some condition is met and the process ends).
+
+  A common form of multitasking is time-sharing which is rapid context switches making it seem like multiple processes are being executed at the same time on the processor. 
+  The OS holds the information about the active processes in process control blocks*. The resources are usually associated with threads*.
+
+  Process Control Block is a data structure in the operating system which holds information needed to manage a particular process.
+
+  Thread the smallest sequence of programmed instructions that be managed independently by a scheduler. In most cases threads are part of processes.
+
+  Threads generally share process state, memory, and other resources. Context switching is faster between threads rather than processes.
+
+  Single threading is when you process one command at a time. Multithreading means threads share resources within the context of a process.
+
+  Multithreads are more responsive, since separate threads can handle different execution tasks, faster execution, since threads can use parallel execution, better system utilization, since one thread can access the cache while another accesses external storage.  
+  Some of the drawbacks are synchronization, programmers must remember that the address space is shared between threads and ensure there is not a race condition. Additionally, threads can perform an illegal operation which may crash the system and disrupt the processing.
+
+  Threads are typically subsets of a process, carry less state information, share memory and other resources, share address spaces, and have faster context switching over processes.
+
+  Processes have individual address spaces, carry more state information, only communicate through inter-process communication mechanisms*
+
+  An address space is range of addresses which may correspond to memory cell, or other logical or physical entity.
+
+  A processor can only process one task at a time, unless it has multiple cores. In that case you can handle multithreading.</p>
+  <p>What is a sempahore?
+
+  A semaphore is an ADT (abstract data type) used to control access to a common resource by multiple processes in a concurrent system. A trivial semaphore is a variable which has a changed value, which allows or disallows access to that resource.
+
+  They are useful in preventing race conditions. Sempahores can be counting (i.e. there is a certain amount of a resource allowed, and the semaphore tracks how much is being used) and binary (1 and 0, used or unused, locked or unlocked).
+
+  Programmers must be careful of requesting a resource, but forgetting to release it, releasing a resource that was not requested, holding a resource for a long time without using it, using a resource without requesting it (or after releasing it).
+
+
+  Translation Lookaside buffer
+
+  TLB is a memory cache that is used to reduce the time taken to access a user memory location. If a user is looking for something, then the TLB will be faster at finding it.
+
+  When an address space switch happens, the TLB may hold information that is irrelevant, so the computer may flush the TLB, meaning it will be empty. This operation is not the most efficient, so newer CPUS mark which process an entry is for.
+
+
+
+  What is concurrency?
+
+  Concurrency is the property of a program being able to be broken up into separate partially ordered units. Meaning, even if portions of a program are executed out of order, the result will be the same.
+
+
+  What is a monitor?
+
+  A monitor consists of a mutex (lock) and condition variables. Condition variables are a container of threads that are waiting for a certain condition. Monitors provide a mechanism for threads to give up exclusive access in order to wait for some condition to be met.
+
+
+  What is system design?
+  A system is the creation, defining, and development of systems in order to satisfy user requirements. Software is standardized which means systems can now be modular, and this increases the importance of software engineering.
+
+  Unified Modeling Language is the standard language which is supposed to provide a way to visualize the design of a system. The idea of UML is to blueprint elements such as activities (jobs), components of the system (how they interact with software components), how the system will run, how components and interfaces interact, and external user interface.
+
+  UML have static (structural) views which emphasize the static structure of the system using objects, attributers, operations, and relationships. Including class diagrams and composite structure diagrams.
+
+  Used to document the software architecture of software systems, for example the component diagram describes how a software system is split up into components and shows the dependencies amongst these components.
+
+  It also has dynamic (behavioral) view which emphasizes the dynamic behavior of the system through displaying the internal states of objects.
+
+  Used to describe how software/ideas are supposed to function and interact with each other.
+
+  Logical design pertains to the abstract idea of how the data flows, inputs/outputs to the system, etc.   The physical design describes how data is actually input into the system, and is usually broken down into user interface, data design, and process design.   User interface design is concerned with how users add information to the system, and how it presents that information back to them.
+
+  Data design is concerned with how the data is represented and stored within the system.
+
+  Process design is concerned with how data moves through the system, how/where it is validated, etc.
+
+
+  What is an interface?
+
+  Interfaces are places where two components of technology communicate with non related components. A hardware interface is usually defined by the mechanical, electrical, and logical signals.
+
+  Software interfaces are more general, and encompass more parts. A software interface could refer to an operating system, which interfaces with the hardware. Applications and programs can interface with streams*. Object oriented programs interacts with methods.
+
+  A stream is a sequence of data elements made available over time.
+
+  Software interfaces should be designed such that access is not public automatically, access should be defined through access points.
+
+  class hierarchy
+  Classification of object types, where objects can be related to each other by building off of one another. You could have an animal class, which would have many different sub-classes that were related (i.e rhinos, wolves, and dolphins), but had their own distinct characteristics. However, there would be some common thread amongst these, like eating, moving, making noises, etc.
+
+  polymorphism
+
+  The idea that a single interface can handle multiple different inputs.
+  For example, the + sign in Python can handle adding numbers together, but it can also add strings together.
+
+  The ability to appear in many forms. In programming this refers to a program’s ability to handle different objects differently, depending not their class or data type.
+
+  Distributed computing
+
+  Components located on connected (networked) computers communicate and coordinate their actions by passing messages. These components interact to achieve a common goal. Significant characteristics include concurrency of components, lack of a global clock, and independent failure of components.
+
+  Distributed program is a distributed system that is run by a computer program. In distributed programming it is common for tasks to be partitioned out  and solved by one, or more, computers.
+
+  Distributed used to mean computers that were spread out in a geographic area, but today can mean autonomous processes that run on the same computer, and interact with each other by message passing.
+
+  Concurrent computing, parallel computing and distributed computing have a lot of overlap and no clear distinction. A system could be described as parallel and distributed. Distributed computing is a loosely coupled form of parallel computing (parallel computing- tight coupling of distributed).
+
+  Parallel computing- all processors have access to a shared memory to exchange information.
+
+  Distributed computing- each processor has its own private memory, information is exchanged by passing messages between processors.
+
+  Architectures- still distributed computing
+  Low level- CPUs are connected via some sort of network, be it printed onto a circuit board or made up of loosely coupled devices.
+
+  Higher level- A communication system must interconnect these processes running on those CPUs.
+
+  Distributed programming falls into some of these categories:
+
+  Client-server- clients contact the server for data then format and display int to the users. Permanent changes are committed back to the server.
+
+  In this model work is done by a server, and is requested by a client. The server does the work and the client initiates the contact. Examples email, network printing, the world wide web.
+
+  Three-tier- Most web applications. Architectures that move the client intelligence to a middle client. Simplifies application deployment.
+
+  N-tier- refer to web applications which further forward their requests to enterprise services. This lead to the success of application servers.
+
+  multi-tier architecture - client server architecture presentation, application processing, and data management functions are physically separated. Three tier is the most common.
+
+  Example- web development such as e-commerce website. A front end web server which delivers content. A middle content processing and generation level application server (Rails, Django, Flask). Then a backend database or data store, made up of data sets and database management systems software, which provides access to the data.
+
+  Peer to Peer- no special machines that provide a service or manage the network resources. Everyone is considered equal in doing the task. Uses include file sharing, instant and voice communication.
+
+  Example-  Skype, Napster
+
+  Distributed systems are more reliable. Many low end computers provide a lower chance of failure than one high end computer.
+
+
+  Scaling out vs scaling up
+
+  Multi-core concurrency is referred to as Scale up, and distributed computing is referred to as scale out.
+
+  Scaling up is the process of making a computer more and more workload, while scaling out is getting more computers to handle the problem.   Scaling up is cheaper, but is more risky.
+
+
+  SQL, NoSQL, and serverless:
+  Sql is a relational database
+
+
+  What is MVC?
+
+  Model, view, controller. The model level is the one which holds the data. A controller sends commands to the model, or to the view to change the presentation of the model/data. The view is any output representation of information, i.e. char or diagram.
+
+  A Star?
+
+  An informed search algorithm for path-finding. It uses the advantages of Dijkstra’s (finding the shortest path) and Best First Search. It does this by using a guide to determine the best next point (based on the current/starting point) and the next best point (based on the goal end point).
+
+</p>
   </div>
 </div>
 </body>

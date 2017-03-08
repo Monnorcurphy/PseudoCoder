@@ -2,47 +2,148 @@
   <title>Algorithm's</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href=".././assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href=".././assets/css/efficiency.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/architechture.css">
   <link rel="stylesheet" type="text/css" href=".././assets/css/navigation.css">
 
 </head>
 <body>
 <div>
   <div class = 'main'>
-    <div class='table-of-contents'>
-      <nav id="contents">
-        <ul class="links">
+  <div class='table-of-contents'>
+    <nav id="contents">
+      <ul class="links">
 
-          <li class="Chapter white">
-            <a href="../index.html" class='bright'>Main</a>
-          </li>
-          <li class="Chapter yellow">
-            <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
-          </li>
+        <div class="support">
+        <li class="Chapter white">
+          <a href="../index.html" class='bright main-button'>Main</a>
+        </li>
+          <li class="Chapter white"><a href="../about.html" class='bright main-button'>About</a></li>
+        </div>
+        <li class="Chapter yellow">
+          <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
+        </li>
 
-          <li class="Chapter green"><a href="data_structures.html">Ch 2: Data Structures </a></li>
+        <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter red"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
+        <li class="Chapter blue"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
 
-          <li class="Chapter blue"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
+        <li class="Chapter red"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
 
-          <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
+        <li class="Chapter orange"><a href="architechture.html" class='bright'>Ch 5: Architechture</a></li>
 
-          <li class="Chapter purple"><a href="">Glossary</a></li>
+            <li class="Chapter orange subset">
+              <a href="terminology.html" class='bright'>1.1 Terminology</a>
+            </li>
+            <li class="Chapter orange subset">
+              <a href="internet.html" class='bright'>1.2 The Internet</a>
+            </li>
+            <li class="Chapter orange subset">
+              <a href="first-half.html" class='bright'>1.3 Distributed Systems</a>
+            </li>
+            <li class="Chapter orange subset">
+              <a href="second-half.html" class='bright'>1.3 other stuff</a>
+            </li>
+            <li class="Chapter orange subset">
+              <a href="summary.html" class='bright'>1.4 Summary</a>
+            </li>
 
-        <li class="Chapter white"><a href="../about.html" class='bright'>About the Author</a></li>
+        <li class="Chapter purple"><a href="">Glossary</a></li>
 
         </ul>
-      </nav>
-    </div>
+    </nav>
+  </div>
   <div class= 'right-text'>
-  <h1>Data Structures</h1>
-  <h2>Array- A Single File Line</h2>
-  <h2>Dictionary/Hash- Teachers in a Room</h2>
-  <h2>Linked Lists- People Call Their Neighbors</h2>
-  <h2>Queues- Just Like a Cafeteria Line</h2>
-  <h2>Stacks- Privelege, the Data Structure</h2>
-  <h2>Graphs- Human Interactionx</h2>
+
+  <h2>More stuffs</h2>
+  <h4>Differenct stuffs</h4>
+  <p>What are the process states?
+
+  First- created. The process scheduler assigns it the waiting state
+
+  Second- The process is waiting, and waits until the scheduler does a context switch and load the process into the processor
+
+  Third- the process becomes running, with the processor executing the process instructions.
+
+  Third.5 - If the process needs to wait for a resource it is blocked, and waits until it gets the input (a file, user input, etc.)
+
+  Fourth- Once the process has finished, it is terminated by the operating system.
+
+  What is a context switch? How do you determine when to switch? How does user and kernel mode switching factor in? And how does busy waiting factor in?
+
+  The process of storing and restoring the state of a process or thread. This enables multiple processes to share a single CPU, and is essential to multitasking operating system.
+
+  Multitasking- Schedulers determine when processes switch. Pre-emptive multitasking has a timer, which ensures that processes switch and share CPU time. This works by having a timer, and the scheduler switches the process after the timer runs out.
+
+  Interrupt Handling- If the CPU needs some data (from a file, a user input, etc.) then it can wait for that data to be retrieved, and do other things while it waits for the data. Then, a program called an interrupt handler, and the CPU is interrupted.
+
+  Transitions between user mode and kernel mode a context switch is not necessary. This is called a mode transition, and is not a context switcher, however, some Operating Systems may require a context switch at this point.
+
+  Executing can depend on the priority of the thread or process, in that case this is called a priority queue.
+
+  Busy waiting (busy looping, or spinning) is telling a CPU to wait to execute, until something that program is waiting on is available. It is generally considered an anti-pattern, since instead of waiting, the CPU can do other tasks while it is waiting.
+
+  What is a lock/mutex? How does it work?  A lock, or mutual exclusion, is a way to limit access to a resource when there are multiple threads of execution.
+
+  Generally, a process has a lock and executes. Other processes which need resources may request the lock. If the thread waits (spins), then it is called a spin lock. Spin locks are only efficient if the lock is held for a short period of time, since this allows the os not to re-scheduling, which can be expensive. This is a bad practice if the lock is held for a long time or if the thread holding the lock needs something from the locked thread (deadlock)
+
+  In is important to have a standard for acquiring the lock, so that you avoid live lock and dead lock.
+
+  Lock overhead- the resources used for initializing a lock, memory space, CPU time to initialize and destroy locks, time for acquiring and releasing locks.
+
+  Lock Contention- A process or thread tries to acquire a lock held by another. You can avoid this by making locks more fine grained (locking a row rather than a table, or locking a cell rather than a row).
+
+  deadlock- at least two tasks are waiting for a lock that the other task holds. if nothing changes, this will cause the process to wait forever.
+
+  Coarse lock granularity (a small number of locks, each protecting large segments of data) results in less lock overhead, but worse performance when processes run concurrently (more lock contention).   Fine lock granularity increases the overhead of the locks, but reduces the lock contention.
+
+  Pessimistic locking- If someone wants to update some data, then no one else can touch the data until the current user is finished. This can cause long waits. This should be used when the cost of protecting data through locks is less than the cost of rolling back transactions. It is not appropriate for Web application development.
+
+  Optimistic locking- Is where users update concurrently, and if the information is incorrect then some updates will fail. This can be a bad implementation when many users are going to repeatedly update a piece of information, causing many users to get failed updates.
+
+  A race condition, or a race hazard, is when two things are operating at the same time even though a programmer did not intend them to. One process was supposed to wait on one of the other ones, and now they are both trying to finish meaning the data will be overwritten by whichever process finishes first, even though they were supposed to finish concurrently.
+
+  Mutual exclusion requires that one thread of executing never enters its critical section at the same time another concurrent thread enters its own critical section.
+
+  A critical section is a shared resource between programs. It cannot be executed by more than one process or program, and examples include a data structure, a peripheral device, or a network connection that would not work if operated by concurrent access.
+
+  Lock free versus wait free
+  An algorithm in which at least a single thread can progress all the time while other threads might starve is lock free.
+
+  Wait free- An algorithm which promises that all the threads can progress all the time.
+
+  Obstruction free is an algorithm that promises any thread can progress if executed in isolation.
+
+  What is deadlock? Live lock?
+
+  A deadlock is when two, or more, locked resources are required by two different threads or locks. Both need the others resources to continue, and cannot move until the resources are relinquished.
+
+  Dead lock requires four conditions:
+  	First - (Mutual Exclusion) Only one process/thread can use a resource at a time
+  	Second - (Hold and wait) a process is currently holding at least one resource and is requesting other resources which are being held by other processes.
+  	Third - (No preemption) a resource can only be related voluntarily by the process holding it.
+  	Fourth - (Circular wait) a process is waiting for a resource held by another process.
+
+  Most ways to avoid deadlock work by preventing the fourth condition. Some large ways to avoid deadlock
+
+  Detection- deadlocks can occur, and when the system detects and restarts one or more processes. These corrections can look like process termination or resource preemption.
+
+  	Process termination is aborting one or more processes, which can be expensive since some data has to be recalculated. You can choose to abort one process at a time until deadlock is resolved, but this means the system must continually recalculate if deadlock is still in existence (expensive).
+
+  	Resource preemption- resources can be preempted until the deadlock is broken.
+
+  Prevention- Remove the mutual exclusion component (impossible in resources that cannot be spooled*). Hold and wait resource can be resolved by processes having all resources requested at once, however this can be inefficient since they may not need resources for a while, and this results in holding resources for a long time.
+
+  (Spooling is when a process must communicate with a slow peripheral (like a printer) and allows the program to hand off work to be done and then proceed to other tasks. The spooler maintains an orderly sequence of jobs and feeds data at a rate the peripheral can handle.
+
+  Conversely for slow input (i.e. a card reader), the spooler can do batch processing, where it waits to do jobs until the input information is available. )
+
+  No preemption, may not work since it may cause thrashing or rollbacks which can be expensive. Finally, the circular wait condition involves disabling interrupts during critical sections and use a hierarchy to determine the ordering of resources.
+
+  Thrashing is when a computer is rapidly exchanging data between data on the disk an data in memory (also known as paging). This can cause performance to degrade or collapse.
+
+  Livelock is like deadlock except the processes required are constantly changing. Livelock is often an algorithm attempting to resolve deadlock, but not doing it properly. Livelock can be avoided by ensuring that one process takes action.
+  </p>
+
   </div>
 </div>
 </body>
