@@ -52,6 +52,98 @@
   <div class= 'right-text'>
   <h2>Lines</h2>
   <h4>Array- A Single File Line</h4>
+  <p>
+    # Static array
+
+
+  class staticArray():
+
+    def __init__(self, limit = 2, store = []):
+      self.store = store
+      self.limit = limit
+      self.adjust()
+      self.fill()
+      self.last = self.find()
+
+    def fill(self):
+      while self.limit != len(self.store):
+        self.store = self.store + [None]
+
+    def find(self):
+      if len(self.store) == 0: return 0
+      i = 0
+      while i < len(self.store):
+        if self.store[i] is None:
+          return i
+        i += 1
+
+      return i
+
+    def stack(self):
+      return self.store
+
+    def max(self):
+      return self.limit
+
+    def push(self, value):
+      if self.last >= self.limit: return False
+      self.store[self.last] = value
+      self.last += 1
+      return value
+
+    def pop(self, index = -1):
+      if self.limit <= index: return False
+      if len(self.store) == 0: return False
+      output= self.store[index]
+      self.store[index] = None
+      self.adjust()
+      return output
+
+    def adjust(self):
+      i = 0
+      j = 0
+      while j < len(self.store):
+        if self.store[i] is None and self.store[j] is not None:
+          self.store[i], self.store[j] = self.store[j], self.store[i]
+          i += 1
+          j += 1
+        elif self.store[i] is not None:
+          i += 1
+          j += 1
+        else:
+          j += 1
+
+
+
+
+  # Dynamic array using static array
+
+  class dynamicArray:
+    def __init__(self, store):
+      self.limit = len(store*2)
+      self.store = staticArray(self.limit, store)
+
+    def amortize(self, value):
+      self.limit = self.store.limit * 2
+      self.store = staticArray(self.limit, self.store.stack())
+      self.store.push(value)
+
+    def stack(self):
+      return self.store.stack()
+
+    def push(self, value):
+      if self.store.last == self.limit:
+        self.amortize(value)
+        return value
+      else:
+
+        self.store.push(value)
+        return value
+
+    def pop(self, index):
+      self.store.pop(index)
+
+  </p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <h4>Queues- Just Like a Cafeteria Line</h4>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
