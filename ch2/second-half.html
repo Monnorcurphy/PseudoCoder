@@ -54,26 +54,80 @@
   <h4>Dictionary/Hash- Teachers in a Room</h4>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <h4>Linked Lists- People Call Their Neighbors</h4>
-  <p>class Node:
-  def __init__(self, value= None, parent= None, child= None):
+  <p>class linkedList:
+  def __init__(self, value= None, future= None):
     self.value = value
-    self.parent= parent
-    self.child = child
+    self.future = future
 
-def linkListify(array):
-  previous = None
+  def listify(self, array):
+    if len(array) ==0: return None
+    i = 1
+    first = linkedList(array[0], None)
+    last = first
+    future = None
+    while i < len(array):
+      future = linkedList(array[i], None)
+      last.future = future
+      last = future
+      i += 1
 
-  i = 0
-  while i < len(array):
-    head = Node(array[i])
-    if previous:
-      previous.child = head
-      head.parent = previous
+    return first
+
+
+def display(head):
+  while head:
+    print (head.value)
+    head = head.future
+  return
+
+def reversedLinks(head):
+  prev = None
+  current = head
+  future = head.future
+
+  while future is not None:
+    current.future = prev
+    prev = current
+    current = future
+    future = current.future
+
+  current.future = prev
+  return current
+
+def pally(head):
+  if head is None: return False
+  if head.value is None: return False
+  tortoise= head
+  hare = head
+  queue = []
+  odd = False
+  while hare.future is not None:
+    if hare.future.future is not None:
+      odd = True
+      queue.append(tortoise.value)
+      tortoise = tortoise.future
+      hare = hare.future.future
     else:
-      first = head
-    previous = head
-    i += 1
-  return first
+      odd = False
+      queue.append(tortoise.value)
+      hare = hare.future
+      tortoise = tortoise.future
+
+  if odd:
+    tortoise = tortoise.future
+
+  while len(queue) > 0:
+    if queue.pop() != tortoise.value:
+      return False
+    tortoise = tortoise.future
+
+  return True
+
+a = linkedList().listify([])
+print(pally(a))
+
+
+
   </p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <h4>Graphs- Human Interactions</h4>
