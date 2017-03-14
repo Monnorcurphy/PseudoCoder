@@ -158,3 +158,70 @@
   </div>
 </div>
 </body>
+
+class graph:
+  def __init__(self, value= None, left= None, right= None, parent= None):
+    self.value = value
+    self.left = left
+    self.right = right
+    self.parent = parent
+
+  def graphify(self, array):
+    if len(array) <= 2: return self.shortGraph(array)
+    return self.recurisveGraph(array, 0)
+
+  def shortGraph(self, array):
+    if len(array) == 0: return None
+    if len(array) == 1: return graph(array[0], None, None, None)
+    return graph(array[0], graph(array[1], None, None, array[0]), None, None)
+
+
+
+  def assignParent(self, array, value):
+    if value == 0: return None
+    if value %2 == 0:
+     return array[int(value/2 - 1)]
+    else:
+      return array[int(value/2)]
+
+
+  def recurisveGraph(self, array, i):
+    left = i * 2 + 1
+    right = i * 2 + 2
+
+    if right <= len(array):
+      head = graph(array[i], self.recurisveGraph(array, left), self.recurisveGraph(array, right), self.assignParent(array, i))
+    elif left <= len(array):
+      head = graph(array[i], self.recurisveGraph(array, left), None, self.assignParent(array, i))
+    elif i < len(array):
+      head = graph(array[i], None, None, self.assignParent(array, i))
+    else:
+      return None
+
+    return head
+
+
+
+def bfs(head, value):
+  queue= [head]
+  trips = 0
+  while len(queue) > 0:
+    check = queue.pop()
+    trips += 1
+    if check.value == value:
+      return check
+    else:
+      if head.right: queue.append(head.right)
+      if head.left: queue.append(head.left)
+      if len(queue) > 0: head = queue[0]
+
+  return -1
+
+def dfs(head, value):
+  if head is None: return -1
+  output = False
+  if head.left: output = dfs(head.left, value)
+  if head.right and not output: output = dfs(head.right, value)
+  if output: return output
+  return value == head.value
+  
