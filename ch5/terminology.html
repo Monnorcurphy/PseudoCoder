@@ -219,8 +219,67 @@
   A Star?
 
   An informed search algorithm for path-finding. It uses the advantages of Dijkstra’s (finding the shortest path) and Best First Search. It does this by using a guide to determine the best next point (based on the current/starting point) and the next best point (based on the goal end point).
-
 </p>
+<p>
+  enterprise service bus - implements a communication system between interacting software applications in service-oriented architecture (SOA). It promotes agility and flexibility with regard to high protocol-level communication between applications.
+
+
+
+  micro services are a software architecture style where applications are composed of small, independent processes communicating with language-agnostic APIs. They are highly decoupled, and focus on doing a small task.
+
+  micro services are not always scalable, because the centralized services and databases must also be scalable. They also put pressure on APIs.
+
+  Because micro services are built on the cloud and have virtualization, servers can be created and provision when the demand arises.
+
+  Scalability as a cube, with an X, Y, and Z axis. Scaling by running multiple copies of an application load-balanced across servers is the X-axis, scale by cloning. Each copy could need all of the data, requiring more memory to be effective. It does not tackle the problems of increasing application complexity.
+
+  Micro services generally fall on the Y axis, which focuses on breaking the applications into components and services. Also known as scale by splitting up. Each service has one ore more closely related functions. This can be doing by breaking services up with verbs, implementing a single  use case such as checkout. Another option is to decompose the application by noun and create services responsible for all operations related to entities, such as customer management. Applications can also use verb and noun based decomposition.
+
+
+  The Z-axis, known as scale by splitting similar things, is running identical copies of code across multiple servers, except that servers are only responsibly for a subset of the application, rather than the entire thing.
+
+  Benefits - each server only deals with a subset of data
+  - improves cache utilization and reduces memory usage and I/O traffic
+  - Improves transaction scalability since requests are typically distributed across multiple servers
+  - Improves fault isolation, since failure only makes part of the data inaccessible.
+  Drawbacks - Increased complexity
+  - Requires a partitioning scheme, can be tricky for repartitioning data
+
+
+  Because micro services can be on multiple servers, when demand increases, you have to make sure all portions scale appropriately.
+
+  Using the Z-axis allows you to send people who are premium to better servers, or based on primary key data being accessed.
+
+  The advantages are that in the old system, the whole application had to be scaled accordingly. But now, with micro services, you can scale up only the portion of the app which is in high demand.
+
+  (application deliver controller)
+
+  Sharding- A horizontal partition of data in a database or search engine. Shards are held on different database server instances, to spread load. Some portions of data may appear in all shards, while others only appear in a single shard. Each shard/server acts as a single source for a subset of data.
+
+  Shards have fewer total rows in each table in each database. But why?
+
+  Shards can be placed on separate hardware, with allows the distribution of data over a number of machines, enabling improved performance.
+
+  Drawbacks are heavier reliance on the connection between servers, increased latency (especially when you have to query multiple shards), data is usually indexed one way, making certain searches sub-optimal, and there can be issues of consistency and durability due to more complex failure modes of a set of servers.
+
+  Database Normalization (normalization)- the process of organizing columns(attributes) and tables (relations) of a relational database to reduce data redundancy and improve data integrity. It can also refer to simplifying the design of a database so it achieves the optimum structure. Removing redundancies from the database by splitting tables and linking them with keys.
+
+  Vertical partitioning- creating tables with fewer columns and using additional tables to store the remaining columns. Good to use when you want to split dynamic (slow) data from static (fast) data.
+
+  Vertical/horizontal data partitioning refers to physical optimization, normalization is a conceptual optimization.
+
+
+  N-tier data applications-
+
+  Presentation Tier- users interact with an application. Typically, this tier does not access the data tier, it communicate with the data tier by the data access component in the middle tier.
+
+  Middle tier- The layer of the presentation tier and data tier use to communicate, generally includes business rules, data validation, and other such things.
+
+  Data tier- Servers/ storage of application’s data.
+
+  Applications which are in different tiers. Also known as distributed applications or multitier applications. 
+</p>
+
   </div>
 </div>
 </body>
