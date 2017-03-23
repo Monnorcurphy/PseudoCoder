@@ -85,3 +85,8 @@ p{
 .Sources{
 	color: blue;
 }
+
+.italics{font-style: italic;
+    font-size: 14px;
+    color: slategrey;
+}
