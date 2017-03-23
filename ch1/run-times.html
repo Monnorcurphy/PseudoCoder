@@ -78,7 +78,7 @@
   </p>
 
   <h4>Exponential - Sell the house, invest in seeds</h4>
-  <h5>The notation O(2 ^ N)</h5>
+  <h5>The notation: O(2 ^ N)</h5>
   <h5>What it means: This problem sucks, but at least it’s not factorial.</h5>
   <h5>Where Will You See It:</h5>
   <p>The above example is still a good way to demonstrate this class.
@@ -90,12 +90,11 @@
     compute every iteration. You will often see these types of solutions
     used in dynamic programming to solve factorial problems.
   </p>
-  <p>Fill dis in
-  </p>
+
 
   <h4>Polynomial - Buy a bunker, and start filling it with canned peaches</h4>
-  <h5>The notation O(N^2)</h5>
-  <h5>What it means- This problem sucks, it is going to be expensive to solve</h5>
+  <h5>The notation: O(N^2)</h5>
+  <h5>What it means: This problem sucks, it is going to be expensive to solve</h5>
   <h5>Where Will You See It:</h5>
   <p>When you multiply two numbers, like 37 * 48, you probably do it this
     way. 8 * 7, 8* 3, 4* 7, 4 * 3. That is a perfect example, for every
@@ -105,36 +104,59 @@
     Generally, you will see this when you first start solving problems.
     They can usually be improved upon, since they are brute force solutions,
     that is not always true however.</p>
-  <p>Fill dis in</p>
+  
 
-  <h4>Linearithmic - Buy health insurance, soonish</h4>
-  <h5>The notation O(N lg N): Leave grandma and get in the van</h5>
-  <h5>What it means- So.... you are sorting something?</h5>
+  <h4>Linearithmic - Leave grandma and get in the van</h4>
+  <h5>The notation: O(N lg N)</h5>
+  <h5>What it means: So.... you are sorting something?</h5>
   <h5>Where Will You See It:</h5>
-  <p>Fill dis in</p>
-  <p>Fill dis in</p>
+  <p>Sorting. Just memorize that, if you can. If you can't, quit programming.
+  Not all sorting algorithms sort that quickly, but the absolute best ones
+  sort that quickly. Quick Sort, Merge Sort, etc. It is slightly worse
+  than O(N), but if you need to go through a bunch of things and you cannot
+  get better time than O(N^2), then sort it.</p>
 
-  <h4>Linear - </h4>
-  <h5>The notation O(N): I guess we can keep the kids, for now.</h5>
-  <h5>What it means- You only need to look at everything once</h5>
-  <h5>Fill dis in</h5>
-  <p>Fill dis in</p>
-  <p>Fill dis in</p>
 
-  <h4>Logarthmic - </h4>
-  <h5>The notation O(lg n): Let's take that vacation after all</h5>
-  <h5>What it means- Someone else did some work, and now you profit from it.</h5>
-  <h5>Where Will You See It:<</h5>
-  <p>Fill dis in</p>
-  <p>Fill dis in</p>
+  <h4>Linear - I guess we can keep the kids, for now. </h4>
+  <h5>The notation: O(N)</h5>
+  <h5>What it means: You only need to look at everything once</h5>
+  <h5>Where Will You See It:</h5>
+  <p>So, God help us, I am going to have explain an abstact concept to you.
+  You can get O(N) in time complexity if you have to go throught the
+  elements only once. However, it can also happen if you have to go through
+  the same elements over and over again. I.e. If you have an array
+  [1,2,3,4, 1]. You go through, and delete duplicates one at a time.
+  First you would delete the 1 at the end, but then you have to go through
+  and check it one more time. In this case, you are doing two passes of
+  the array, but that is 2N, and in Big O we do not care about integer
+  values. So, your time is reduced down to O(N)</p>
 
-  <h4>Constant - </h4>
-  <h5>The notation O(N): Let's buy lottery tickets</h5>
-  <h5>What it means- Solving this problem is unimportant</h5>
-  <h5>Where Will You See It:<</h5>
-  <p>Fill dis in</p>
-  <p>Fill dis in</p>
+  <h4>Logarthmic - Let's take that vacation after all</h4>
+  <h5>The notation: O(lg n) </h5>
+  <h5>What it means: Someone else did some work, and now you profit from it.</h5>
+  <h5>Where Will You See It:</h5>
+  <p>Congrats, you are doing Binary Search. I am so proud of you. Or you
+  are working with a certain grahps. This means that you only need to look at half
+  of the data you are given. Probably because you are looking for a number
+  or name in a sorted list of numbers/names. If someone says the word sorted,
+  think can I use binary search? It won't always work, but sometimes it will.
+  Also, this will come up in reference to Binary Search Trees, AVL trees, and
+  Red and Black trees. You will learn more about these subjects later.</p>
 
+
+  <h4>Constant - Buy lottery tickets, quit your job, and relax </h4>
+  <h5>The notation: O(N)</h5>
+  <h5>What it means: Solving this problem is unimportant</h5>
+  <h5>Where Will You See It:</h5>
+  <p>Does the answer exist somewhere in a dictionary/hash? In terms of solving
+  a problem, it is not going to be frequent that you will be expected to solve
+  something with constant time. It might be possible to use constant space, which is
+  an important part of Big O, so don't forget to analyze your space complexity.</p>
+
+  <h4>Sources/Further Reading</h4>
+  <ul>
+    <li> <a class= 'Sources' href="http://bigocheatsheet.com/">Big O Cheat Sheet</a></li>
+  </ul>
 
     </div>
   </div>
