@@ -52,7 +52,57 @@
   <div class= 'right-text'>
   <h2>Lines</h2>
   <h4>Array- A Single File Line</h4>
+  <p> Let’s start simple, imagine you had a bunch of people standing in
+    a line and each person had a chalk number in front of them. There is
+    one other important point, and that is they are all standing inside
+    giant cardboard boxes. This will become important later, so remember
+    it. The first person would have a number 0 (the 0th element), the
+    next would be a 1, etc.
+  </p>
+
+  <p>That is how an array works. Usually declared inside brackets ->[].
+      Now, imagine you had to find the 12th person (#11), how long would
+    that take you? Well, let’s not say you, because it would take you a
+    whole day. But let’s say an average person. No time at all. They
+    walk up to the number 11, and you have it! Simple as that.  How about
+    removing a person from the line? Well, you can’t have #11 be empty,
+    you silly goose. So you have to have #12 fill that person’s spot.
+    And #13 fill #12, and so on, for the whole line. That would take a
+    while.
+  </p>
+  <p> Now what about Adding a person. Let’s again assume spot #11.
+    You need to move the person from spot #11 to #12, since you are
+    evicting them, you heartless criminal. The person in spot #12 up one
+    as well, and so on. Think of all the people you have displaced.
+    Are you happy now?
+  </p>
+
+  <p>And lastly, what if we were to look for a person in line. Well, if
+  you were smart, you would have organized the line. You weren’t though,
+  and no one is surprised. So now you have to go through the entire line
+  of people until you find them. I can hear you now “But…but. I can just
+  look through the line.”
+  </p>
+  <p>Remember the thing about cardboard boxes? In the first paragraph? I
+  told you it was important. And you didn’t listen. You have to go up
+  to each person, and open the box until you find Jimmy Borgensen.
+  </p>
+  <p>So in Big O notation, what is the run time of searching,
+    inserting, and deleting from an array?
+  </p>
+
   <p>
+    Access (Finding the person at spot #11)- O(1)
+    <br>
+    <br>
+    Insertion - O(N)
+    <br>
+    <br>
+    Deletion - O(N)
+    <br>
+    <br>
+    Searching- O(N)
+  </p>
     # Static array
 
 
