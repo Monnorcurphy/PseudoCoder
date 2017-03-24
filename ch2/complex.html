@@ -98,13 +98,13 @@
         The box is turned into a linked list, however this comes at a
         price, access. We can no longer guarentee that we will be able
         to access the values at a given key in constant time, since a
-        linked list could be N elements long. This is why most hashing
-        functions say that when a hash/dictionary becomes too packed.
-        This can happen when a box stores more than a certain number of
-        items. It can also happen when a hash stores more items than
-        originally anticipated. It resizes itself (maybe it had 10 boxes
-        before, now it has 20), and assigns the values in the boxes
-        to the appropriate locations.
+        linked list could be N elements long. This is why most hashes
+        say that when a hash/dictionary becomes too packed, we must
+        rezise. This can happen when a box stores more than a certain
+        number of items. It can also happen when a hash stores more
+        items than originally anticipated. It resizes itself (maybe it
+        had 10 boxes before, now it has 20), and assigns the values in
+        the boxes to the appropriate locations.
       </p>
 
 
