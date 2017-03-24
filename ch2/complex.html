@@ -27,19 +27,19 @@
 
           <li class="Chapter green"><a href="data_structures.html">Ch 2: Data Structures </a></li>
               <li class="Chapter green subset">
-              <a href="terminology.html">1.1 Terminology</a>
+              <a href="terminology.html">2.1 Terminology</a>
             </li>
             <li class="Chapter green subset">
-            <a href="simple.html">1.2 Simple Structures</a>
+            <a href="simple.html">2.2 Simple Structures</a>
           </li>
           <li class="Chapter green subset">
-          <a href="medium.html">1.3 Medium Stuctures</a>
+          <a href="medium.html">2.3 Medium Stuctures</a>
           </li>
           <li class="Chapter green subset">
-          <a href="complex.html">1.4 Complex Structures</a>
+          <a href="complex.html">2.4 Complex Structures</a>
           </li>
         <li class="Chapter green subset">
-          <a href="summary.html">1.5 Summary</a>
+          <a href="summary.html">2.5 Summary</a>
           </li>
 
           <li class="Chapter blue"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
@@ -74,19 +74,43 @@
         that we talked about is more specifically the idea for the LRU
         cache. That is last recently used.   There are MANY other ways to
         handle a cache, and a jewelry box, and I don’t want to get too
-        mired down by them. If you have requests for me explaining a
-        particular method, let me know.
+        mired down by them.
+      </p>
+      <p>
+        This example is just like RAM and hard disk storage in computing.
+        Ram is much faster than hard disk storage. Caches work with RAM
+        to allow users access to data that is used frequently, or
+        whichever caching scheme is deemed appropriate.
       </p>
 
       <h4>Hash Collisions</h4>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        As you know from the terminology section, hashing is the method
+        by which data is partitioned into sections of a hash. Each
+        section of a hash is like a box. So, when you have you put
+        something into a hashing function, it picks a box, and places it
+        there. What if, two things are assigned to the same box? Well,
+        luckily we have a data structure that can help us out, linked
+        lists.
       </p>
+      <p>
+        The box is turned into a linked list, however this comes at a
+        price, access. We can no longer guarentee that we will be able
+        to access the values at a given key in constant time, since a
+        linked list could be N elements long. This is why most hashing
+        functions say that when a hash/dictionary becomes too packed.
+        This can happen when a box stores more than a certain number of
+        items. It can also happen when a hash stores more items than
+        originally anticipated. It resizes itself (maybe it had 10 boxes
+        before, now it has 20), and assigns the values in the boxes
+        to the appropriate locations.
+      </p>
+
 
       <h4>Trees and Cycles</h4>
       <p> In this section I am going to talk about Binary Search Trees,
         AVL trees, Red and Black trees, as well as cycles, which means
-        that a graph is a graph, and not a tree. 
+        that a graph is a graph, and not a tree.
       </p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -95,8 +119,61 @@
 
       <h4>Heaps</h4>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        I could try to compare a heap to a pile of rice, but it does not
+        seem to have any real use. A heap is unlike any thing that I have
+        experienced in my life, it is a heap. So let me explain how it
+        works.
       </p>
+      <p>
+        There are two types of heaps, a min heap, and a max heap. For
+        our purposes, let us say we have a min heap. Max heaps are just
+        like min heaps, except the opposite. If you don't understand,
+        have a toddler read this page and then explain it to you. A heap
+        is a pile of numbers, you can think of them as nodes. The top
+        node points to a value, in a min heap that is the lowest value.
+        When you take the top node off of the heap, you replace it with
+        the next lowest value. A heap's head node looks at all the
+        children, finds the lowest value, and makes that the new head.
+        Simple.
+      </p>
+
+      <p>Like this:
+        <br>
+        <br>
+        2
+        <br>
+        4 3
+        <br>
+        6 5
+        <br>
+        <br>
+        We take two off, and replace the values
+        <br>
+        <br>
+        3
+        <br>
+        4 5
+        <br>
+        6
+        <br>
+        <br>
+        Three keeps 5 as its child, and reassigns 4 to be another child.
+        4 does not move, and if 5 had children, they would be moved up.
+        If we popped three off, 4 would become the new head, moving 6 up,
+        and 4 would have 5 as its new child.
+
+
+
+      </p>
+
+      <h4>Sources/Further Reading</h4>
+      <ul>
+        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Dynamic_programming"></a></li>
+        <li> <a class= 'Sources' href="https://www.quora.com/How-do-you-explain-NP-Complete-and-NP-hard-to-a-child"></a></li>
+        <li> <a class= 'Sources' href="https://www.quora.com/What-are-P-NP-NP-complete-and-NP-hard"></a></li>
+
+      </ul>
+
 
 
   </div>

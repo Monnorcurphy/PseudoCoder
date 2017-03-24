@@ -30,16 +30,16 @@
 
           <li class="Chapter red"><a href="sorting.html">Ch 4: Sorting</a></li>
             <li class="Chapter red subset">
-            <a href="terminology.html">1.1 Terminology</a>
+            <a href="terminology.html">4.1 Terminology</a>
             </li>
             <li class="Chapter red subset">
-            <a href="basic.html">1.2 Basic Sorts</a>
+            <a href="basic.html">4.2 Basic Sorts</a>
             </li>
             <li class="Chapter red subset">
-            <a href="advanced.html">1.3 Advanced Sorts</a>
+            <a href="advanced.html">4.3 Advanced Sorts</a>
             </li>
           <li class="Chapter red subset">
-            <a href="summary.html">1.4 Summary</a>
+            <a href="summary.html">4.4 Summary</a>
             </li>
 
           <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
@@ -50,149 +50,127 @@
       </nav>
     </div>
   <div class= 'right-text'>
-    <h2>Yo</h2>
-    <h4>Bubble Sort</h4>
-      <p>For all sorting we are going to imagine that you are trapped in a prison at the bottom of the ocean, because that is where all of you, and your friends belong.
+    <h2>Basic Sorts</h2>
+      <p>For all sorting we are going to imagine that you are trapped
+        in a prison at the bottom of the ocean, because that is where
+        all of you, and your friends belong. But we have some bad news,
+        all of you have escaped and managed to get to a cannon.
+        <i class='Italics'>booooo hissssss</i>
+      </p>
+      <p>
+        The only way to fire the cannon is to increase the power based
+        on the weight of the person getting in, and powering it up is
+        faster than lowering the power. So, you have to send everyone
+        up in weight order. Everyone is in a line, but it is out of
+        order and they look to you for help. What do you do?
+      </p>
+      <p>
+      <h4>Bubble Sort</h4>
+      <p>If you managed to think quickly, it might only take you half a
+        day to come up with this idea. You are going going to go up to
+        every person. If they weigh less than the person next to them,
+        I will push them up towards the front, until they are where they
+        are supposed to be. Because you are a fool, you have to go
+        through one final time to make sure everyone is in correct
+        order.
+      </p>
 
-      Now all of you have escaped and managed to get to a cannon. *booooo* *hissssss* The only way to fire the cannon is to increase the power based on the weight of the person getting in, and powering it up is faster than lowering the power. So, you have to send everyone up in weight order. Everyone is in a line, but it is out of order and they look to you for help. What do you do?
+      <p>This, is bubble sort. Congrats! You wasted most of the day to
+        come up with one of the most inefficient sorting algorithms. I
+        hope you and your ilk are thrown back in prison. The Big O,
+        in fact the BEST CASE, of this is N^2, so bad. Like real bad.
+        Like give up and live in a nature, don’t go near a computer.
+        You are bad. Stop.
+      </p>
 
-      Bubble Sort (keep iterating)
-      If you managed to think quickly, it might only take you half a day to come up with this idea. You are going going to go up to every person. If they weigh less than the person next to them, I will push them up towards the front, until they are where they are supposed to be. Because you are a fool, you have to go through one final time to make sure everyone is in correct order.
+      <p>
+        It is possible to modify bubble sort so that it stops when it
+        is fully sorted, which means, in the best case it goes to O(N),
+        but it remains a Big O of N^2.
+      </p>
 
-      This, is bubble sort. Congrats! You wasted most of the day to come up with one of the most inefficient sorting algorithms. I hope you and your ilk are thrown back in prison.
 
-      The Big O, in fact the BEST CASE, of this is N^2, so bad. Like real bad. Like give up and live in a nature, don’t go near a computer. You are bad. Stop.
 
-      It is possible to modify bubble sort so that it stops when it is fully sorted, which means, in the best case it goes to O(N), but it remains a Big O of N^2.
-
-      In code
-
-      def bubble_sort(array):
-        sorted = False
-        while not sorted:
-          sorted = True
-          i = 0
-
-          while i < len(array) - 1:
-            if array[i]> array[i+ 1]:
-              array[i], array[i + 1] = array[i + 1],array[i]
-              sorted = False
-              i+= 1
-
-            else:
-              i+= 1
-
-        return array</p>
+      </p>
     <h4>Selection Sort</h4>
-      <p>Selection sort
-
-      Let’s say you decide that your other method is no good. Drats, you might actually escape. But, thankfully for the prison guards, your next go to method is this. You go through all of your friends, finding the lowest weight, and placing them at the front. And you continue to do this until everyone is in the right order.   Slightly more efficient, since you don’t have to go through every friend one last time at the end (like bubble sort) and, you are only searching a smaller group of friends. Since the friends at the beginning already belong there, you don’t need to search them again.
-
+      <p> Let’s say you decide that your other method is no good.
+        Drats, you might actually escape. But, thankfully for the prison
+        guards, your next go to method is this. You go through all of
+        your friends, finding the lowest weight, and placing them at the
+        front. And you continue to do this until everyone is in the right
+        order.
+      </p>
+    <p>  
+      Slightly more efficient, since you don’t have to go through every
+      friend one last time at the end (like bubble sort) and, you are
+      only searching a smaller group of friends. Since the friends at the
+      beginning already belong there, you don’t need to search them again.
+    </p>
+    <p>
       The Big O notation of this would still be O(N^2)
+    </p>
 
-      def selection_sort(array):
-        low = None
-        result = []
-        while len(array) > 0:
-          i = 0
-          while i < len(array):
-            if low is None or low > array[i]:
-              low = array[i]
-            i += 1
-
-          result.append(low)
-          array.remove(low)
-          low = None
-
-        return result
-
-
-      print selection_sort([3,2,4,6,1,5, 10, 100, 49, 39, -2])</p>
     <h4>Insertion Sort</h4>
-      <p>Abandoning those two ideas as fruitless, you exclaim to your friends ‘I HAVE GOT IT!’ and propose the following. You realize that what made selection sort faster was the fact that larger and larger parts of the line were already sorted. So, you decide to insert each person where they belong in line. You start at the second person, and compare them to the first. Doing this over and over again until everyone is in the right place.
+      <p>
+        Abandoning those two ideas as fruitless, you exclaim to your
+        friends ‘I HAVE GOT IT!’ and propose the following. You
+        realize that what made selection sort faster was the fact that
+        larger and larger parts of the line were already sorted. So,
+        you decide to insert each person where they belong in line.
+        You start at the second person, and compare them to the first.
+         Doing this over and over again until everyone is in the right
+         place.
+       </p>
+       <p>
+         Since the first two are sorted, then the first three, then
+         first four, all you have to do is put everyone in their place.
+       </p>
+       <p>
+         Your friends would, hopefully, realize that friendship with you
+         is a waste of time and elect a new sorting leader. Can you guess
+         the Big O?
+         <br>
+         <br>
+         It's O(N^2).
+       </p>
 
-      Since the first two are sorted, then the first three, then first four, all you have to do is put everyone in their place.
-
-      Your friends would, hopefully, realize that friendship with you is a waste of time and elect a new sorting leader.
-
-      The Big O notation of this solution would take O(N^2)</p>
     <h4>Quick Sort</h4>
-      <p>Quick sort
-
-
-      from random import randint
-
-      def quick_sort(array, start, end):
-        if not start < end: return
-
-        pivot = partition(array, start,end)
-        quick_sort(array, start, pivot)
-        quick_sort(array, pivot + 1, end)
-
-        return array
-
-
-      def partition(array, start, end):
-        pivot = randint(start, end)
-        if pivot != end:
-          array[pivot], array[end] = array[end], array[pivot]
-          pivot = end
-
-        i = 0
-        j = 0
-        while i < end:
-          if array[i] < array[end]:
-            array[i], array[j] = array[j], array[i]
-            i += 1
-            j += 1
-          else:
-            i += 1
-
-        array[end], array[j] = array[j], array[end]
-        return j</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
     <h4>Merge Sort</h4>
-      <p>Imagine you had to sort three hundred tickets to a ball, that you weren’t invited to…again. Well, no worries, maybe if you sort this very efficiently, you can go to the ball this year, because everyone will be so impressed.
+      <p>Imagine you had to sort three hundred tickets to a ball,
+        that you weren’t invited to…again. Well, no worries, maybe if
+        you sort this very efficiently, you can go to the ball this
+        year, because everyone will be so impressed.
+      </p>
 
-      What you do is, divide half the tickets into two piles each, then divide those piles into halves, and so on, until each pile has one ticket. You then sort the piles of tickets by comparing piles of one against other piles of one. So, you have ticket 205 and ticket 40. Ticket 40 goes first, then ticket 205. You do this for all piles of one until you have half as many piles of two. Now, you do the same problem again for the piles of two. But, all the tickets are already sorted, making it much easier.
+      <p>
+        What you do is, divide half the tickets into two piles each,
+        then divide those piles into halves, and so on, until each pile
+        has one ticket. You then sort the piles of tickets by comparing
+        piles of one against other piles of one. So, you have ticket 205
+        and ticket 40. Ticket 40 goes first, then ticket 205. You do this
+        for all piles of one until you have half as many piles of two.
+        Now, you do the same problem again for the piles of two. But,
+        all the tickets are already sorted, making it much easier.
+      </p>
 
-      So you look at the first ticket in each pile, then compare their values. Put the lowest value in first, then the next greatest value, doing this all the way up until you have sorted all 300 tickets.
+      <p>
+        So you look at the first ticket in each pile, then compare their
+        values. Put the lowest value in first, then the next greatest
+        value, doing this all the way up until you have sorted all 300
+        tickets.
+      </p>
 
-      So, how long do you think this solution would take?
+      <p>So, how long do you think this solution would take?
+        <br>
+        <br>
+      If you thought Big O of n log n, then you are wrong! It’s a Big o
+      of n log n, you silly goose. The above implementation I explained
+      is actually the “worse” merge sort. If you would like to know the
+      better one, it will have it’s own page which you can look at.
+      </p>
 
-
-      If you thought  a Big O of n log n, then you are wrong! It’s a Big o of n log n, you silly goose. The above implementation I explained is actually the “worse” merge sort. If you would like to know the better one, it will have it’s own page which you can look at.
-
-      in code
-
-      def merge_sort(array):
-        if len(array) <= 1: return array
-        length = len(array) - 1
-        left = merge_sort(array[:length])
-        right = merge_sort(array[length:])
-
-        return sorting(left, right)
-
-
-      def sorting(arr1, arr2):
-        result = []
-        while len(arr1) > 0 and len(arr2) > 0:
-          if arr1[0] < arr2[0]:
-            result.append(arr1[0])
-            del(arr1[0])
-          else:
-            result.append(arr2[0])
-            del(arr2[0])
-
-        for el in arr1:
-          result.append(el)
-
-        for el in arr2:
-          result.append(el)
-
-        return result
-
-
-      print merge_sort([1,10,5,4,2,3])</p>
+      </p>
   </div>
 </div>
 </body>
