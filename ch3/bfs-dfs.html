@@ -54,174 +54,81 @@
   <div class= 'right-text'>
     <h2>Graph Search</h2>
   <h4>BFS</h4>
-    <p>Breadth First Search and Depth First Search
-    Imagine you had friends. Really think about it. Imagine what that would feel like.
+  <p>
+    Now let’s say that you really hated the name Carmen, because that is
+    something that you would do. That’s what people think of you. And
+    you are the type of person to take this next level. Not only do you
+    not want friends named Carmen, but you don’t want to be friends with
+    anyone who knows anyone named Carmen. There are two ways to handle
+    that situation.
+  </p>
+  <p>First, you could go through all of your friends, asking their names,
+    and if anyone is named Carmen, you cut them out (don’t kill them, as
+    this is highly illegal and your defense would be flimsy at best).
+    Next, you go through your friends friends, cutting out friends who
+    have friends named Carmen. But your craziness doesn’t stop there,
+    you have to check your friends friends friends, since if they know a
+    Carmen, then through the transitive property your friend knows a
+    Carmen, and then you know a Carmen. Dear GOD!
+  </p>
 
-    Now, what if you wanted to find a peach farmer in your network? Well chances are, you live in a city, and do not know any peach farmers. You could try two approaches.
+  <p>
+    That is called Breadth First Search. I will show you an example, but
+    it is going to take the most imagination of all. We have to pretend
+    you have friends.
+  </p>
 
-    First, you could go to everyone one of your friends and ask them if they are a peach farmer. Then you could ask all of your friends friends, if any of them were peach farmers, and so on in a fashion like this. This would be ineffective, but it’s probably better than whatever you thought of when you were trying to think of a solution to finding a peach farmer in your imaginary friends network.
-    This is called Breadth First Search
-     Another, probably better option, would be to ask a specific friend who you think had a peach farmer in their network. Then ask through their whole network. If they didn’t know any peach farmers, you could ask your next best guess in your direct friend group, asking their friends friends. Ideally, through each iteration would go this way.
-
-
-    You —> Bill —> Jim —> Terry
-    You—> Bill—> Jim—> Johnny
-
-    You are more likely to find a peach farmer this way, since anyone who is close to you is unlike to know many farmers, and therefore their friends are less likely to know one either. So you go as far down the relationship tree as you can, until you hit gold, or peaches. Same thing.
-
-    This is called Depth First Search. No one is better than the other when it comes to searching, unless you have a rough idea of where your data is going to be. If you expect the data to be towards the bottom, DFS. If you expect it to be somewhere towards the top, BFS.
-
-    The Big O notation is tricky for this one. So we have to make sure we are not visiting nodes twice, since in that case this could take an infinite time period.
-
-    Big O would be O(N) where N is the number of nodes.
-     </p>
+  <p>
+    You—> Bill, Lolita, Jimmy  
+    <br>
+    <br>
+    They are all clean so you go through their friends.
+    <br>
+    You —> Bill, Lolita, Jimmy —> Bill’s friends(Caleb, Sophie, Ben)…etc.
+    <br>
+    <br>
+    You add each person’s friends after searching them. By contrast you
+    could search each friend individually, then their friends, then their
+    friends friends.
+  </p>
+  <p>
+    You —> Bill —> Caleb —> no friends
+    <br>
+    You —> Bill —> Sophie —> Jimmy —>… Too many to imagine
+    <br>
+    You—> Bill —> Ben —> Dr. Urchin —>…who cares, you get it.
+  </p>
   <h4>DFS</h4>
+  <p>
+    In Depth First Search, instead of searching your friends,
+    then your friends friends, then your friends friends friends, etc.
+    you search each friend’s connections first. Rooting out the Carmen’s
+    one friend at a time. The better depends on which way will lead to
+    a Carmen the fastest.
+  </p>
+
+  <p>A more straightforward example would be, if you live in the city
+    and you are looking for a peach farmer. Are you going to search your
+    friends, and then their friends? No way! A peach farmer is more
+    likely to be a friend of a friend’s friend. So you should pick the
+    person who is most likely to have a peach farmer in their network.
+    Like Jimmy, he knows everyone. That would be Depth First Search.
+  </p>
+  <p> But if you are a farmer and you are looking for a peach farmer,
+    your direct friends are more likely to have those connections, so
+    you might use Breadth First Search instead, but that depends on the
+    farmer.
+  </p>
     <p>
+    The Big O notation is tricky for this one. So we have to make sure
+    we are not visiting nodes twice, since in that case this could take
+    an infinite time period.
+  </p>
+    <p>
+      Big O would be O(N) where N is the number of nodes.
+     </p>
 
-
-      class Node:
-
-        def __init__(self, value,parent = None, children = None):
-          self.value = value
-          self.children = children
-          self.parent = parent
-
-
-      a = Node(10)
-      b = Node(5)
-      c = Node(14)
-      d = Node(15)
-
-      a.children=[b,c]
-      b.parent= a
-      c.parent = a
-      c.children= [d]
-      d.parent= b
-
-
-      def dfs(head, value):
-        if head.children is None: return head.value == value
-        found = False
-
-        for child in head.children:
-          if found == False:
-            found= dfs(child, value)
-
-        if head.value == value or found== True:
-          found = True
-          return found
-
-        return found
-
-
-
-      bfs
-
-      class Node:
-
-        def __init__(self, value,parent = None, children = None):
-          self.value = value
-          self.children = children
-          self.parent = parent
-
-
-      a = Node(10)
-      b = Node(5)
-      c = Node(14)
-      d = Node(15)
-
-      a.children=[b,c]
-      b.parent= a
-      c.parent = a
-      c.children= [d]
-      d.parent= b
-
-
-      def bfs(head, value):
-        if head.value is value: return True
-
-        search = []
-        for child in head.children:
-          search.append(child)
-
-        while search:
-          if search[0].value == value:
-            return True
-          elif search[0].children:
-            for child in search[0].children:
-              search.append(child)
-            search.pop(0)
-          else:
-            search.pop(0)
-
-        return False</p>
 
   </div>
 </div>
 </body>
-
-class graph:
-  def __init__(self, value= None, left= None, right= None, parent= None):
-    self.value = value
-    self.left = left
-    self.right = right
-    self.parent = parent
-
-  def graphify(self, array):
-    if len(array) <= 2: return self.shortGraph(array)
-    return self.recurisveGraph(array, 0)
-
-  def shortGraph(self, array):
-    if len(array) == 0: return None
-    if len(array) == 1: return graph(array[0], None, None, None)
-    return graph(array[0], graph(array[1], None, None, array[0]), None, None)
-
-
-
-  def assignParent(self, array, value):
-    if value == 0: return None
-    if value %2 == 0:
-     return array[int(value/2 - 1)]
-    else:
-      return array[int(value/2)]
-
-
-  def recurisveGraph(self, array, i):
-    left = i * 2 + 1
-    right = i * 2 + 2
-
-    if right <= len(array):
-      head = graph(array[i], self.recurisveGraph(array, left), self.recurisveGraph(array, right), self.assignParent(array, i))
-    elif left <= len(array):
-      head = graph(array[i], self.recurisveGraph(array, left), None, self.assignParent(array, i))
-    elif i < len(array):
-      head = graph(array[i], None, None, self.assignParent(array, i))
-    else:
-      return None
-
-    return head
-
-
-
-def bfs(head, value):
-  queue= [head]
-  trips = 0
-  while len(queue) > 0:
-    check = queue.pop()
-    trips += 1
-    if check.value == value:
-      return check
-    else:
-      if head.right: queue.append(head.right)
-      if head.left: queue.append(head.left)
-      if len(queue) > 0: head = queue[0]
-
-  return -1
-
-def dfs(head, value):
-  if head is None: return -1
-  output = False
-  if head.left: output = dfs(head.left, value)
-  if head.right and not output: output = dfs(head.right, value)
-  if output: return output
-  return value == head.value

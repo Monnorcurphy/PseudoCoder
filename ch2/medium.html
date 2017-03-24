@@ -116,7 +116,8 @@
   <h4>Linked Lists- People Call Their Neighbors</h4>
   <p>
   Let’s say you are the principal at a school, and you want to talk to
-  every teacher you are in an office. But you are a lazy principal, so
+  every teacher, and you are in an office. However, we know you. You are
+  a lazy person, and an even lazier principal, so
   you don’t want to call every teacher, you want to call one (or maybe
   two) teachers, and then have them call the rest. So you assign the
   first teacher to call the second one, the second one to call the third,
@@ -194,71 +195,6 @@
     this. You either trust that I will get to it, or you don’t. I know
     you, you don’t trust me. That’s because you are a bitter and lonely
     person. 
-  </p>
-  <p>
-    Now let’s say that you really hated the name Carmen, because that is
-    something that you would do. That’s what people think of you. And
-    you are the type of person to take this next level. Not only do you
-    not want friends named Carmen, but you don’t want to be friends with
-    anyone who knows anyone named Carmen. There are two ways to handle
-    that situation.
-  </p>
-  <p>First, you could go through all of your friends, asking their names,
-    and if anyone is named Carmen, you cut them out (don’t kill them, as
-    this is highly illegal and your defense would be flimsy at best).
-    Next, you go through your friends friends, cutting out friends who
-    have friends named Carmen. But your craziness doesn’t stop there,
-    you have to check your friends friends friends, since if they know a
-    Carmen, then through the transitive property your friend knows a
-    Carmen, and then you know a Carmen. Dear GOD!
-  </p>
-
-  <p>
-    That is called Breadth First Search. I will show you an example, but
-    it is going to take the most imagination of all. We have to pretend
-    you have friends.
-  </p>
-
-  <p>
-    You—> Bill, Lolita, Jimmy  
-    <br>
-    <br>
-    They are all clean so you go through their friends.
-    <br>
-    You —> Bill, Lolita, Jimmy —> Bill’s friends(Caleb, Sophie, Ben)…etc.
-    <br>
-    <br>
-    You add each person’s friends after searching them. By contrast you
-    could search each friend individually, then their friends, then their
-    friends friends.
-  </p>
-  <p>
-    You —> Bill —> Caleb —> no friends
-    <br>
-    You —> Bill —> Sophie —> Jimmy —>… Too many to imagine
-    <br>
-    You—> Bill —> Ben —> Dr. Urchin —>…who cares, you get it.
-  </p>
-
-  <p>
-    This is called Depth First Search. Instead of searching your friends,
-    then your friends friends, then your friends friends friends, etc.
-    you search each friend’s connections first. Rooting out the Carmen’s
-    one friend at a time. The better depends on which way will lead to
-    a Carmen the fastest.
-  </p>
-
-  <p>A more straightforward example would be, if you live in the city
-    and you are looking for a peach farmer. Are you going to search your
-    friends, and then their friends? No way! A peach farmer is more
-    likely to be a friend of a friend’s friend. So you should pick the
-    person who is most likely to have a peach farmer  in their network.
-    Like Jimmy, he knows everyone. That would be Depth First Search.
-  </p>
-  <p> But if you are a farmer and you are looking for a peach farmer,
-    your direct friends are more likely to have those connections, so
-    you might use Breadth First Search instead, but that depends on the
-    farmer.
   </p>
   <p>Big O is complex, so we will talk about that in the complex section.
     There are a few other important things, one of which is directed or
