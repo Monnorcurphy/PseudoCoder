@@ -30,13 +30,16 @@
               <a href="terminology.html">1.1 Terminology</a>
             </li>
             <li class="Chapter green subset">
-            <a href="first-half.html">1.2 Data Structures Pt. 1</a>
+            <a href="simple.html">1.2 Simple Structures</a>
           </li>
           <li class="Chapter green subset">
-          <a href="second-half.html">1.3 Data Structures Pt. 2</a>
+          <a href="medium.html">1.3 Medium Stuctures</a>
+          </li>
+          <li class="Chapter green subset">
+          <a href="complex.html">1.4 Complex Structures</a>
           </li>
         <li class="Chapter green subset">
-          <a href="summary.html">1.4 Summary</a>
+          <a href="summary.html">1.5 Summary</a>
           </li>
 
           <li class="Chapter blue"><a href="../ch3/searching.html" class='bright'>Ch 3: Searching</a></li>
@@ -50,7 +53,7 @@
       </nav>
     </div>
   <div class= 'right-text'>
-  <h2>Part 2</h2>
+  <h2>Medium Structures</h2>
   <h4>Dictionary/Hash- Teachers in a Room</h4>
   <p>
     A new data structure means a new example, isn’t this fun? No?
@@ -60,11 +63,12 @@
   </p>
 
   <p>
-    From here on out I am going to call them hashes. Imagine that you
-    have a bunch of teachers, each of whom is given a room. All of the
-    room assignments are on a directory. Finding out if a given room has
-    been assigned would be an easy task, just look in the directory. If
-    it is there, it has been assigned, if not, then it hasn’t.
+    Dictionaries/hashes, I will be referring to them as hashes. Imagine
+    that you have a bunch of teachers, each of whom is given a room. All
+    of the room assignments are on a directory. Finding out if a given
+    room has been assigned would be an easy task, just look in the
+    directory. If it is there, it has been assigned, if not, then it
+    hasn’t.
   </p>
 
   <p>
@@ -81,7 +85,9 @@
   <p>
     Removing or adding people to a room would be easy. If a room is
     unused, add a teacher to it. If it is in use, then you just remove
-    it. Simple as pie.
+    it. Simple as pie. There is a more complex example, called collisions.
+    It is not super important, but worth knowing about, so read about
+    it in the complex section.
   </p>
   <p>
     So what is the Big O for accessing, inserting, and deleting from a
@@ -114,7 +120,7 @@
     doubly linked (1-> 2–> 3 AND 3-> 2–> 1).    Now, imagine you wanted to
     find a teacher with a particular name using this scheme, there is
     only one way to do it. Call the first teacher, and then go through
-    each one until you find it.
+    each one until you find them.
   </p>
   <p>
     Hiring a new teacher would be easy, since all you would have to do
@@ -126,6 +132,7 @@
     <br>
     <br>
     Ms. Crab calls Mr. Scwalksky
+    <br>
     Mr. Scwalksky calls Dr. Urchin
   </p>
   <p>
@@ -136,8 +143,8 @@
   <p>
     In a system where you had teachers who called two people (the person
     after them, and the person before them) then this task is still
-    simple. You call in Dr. Urchin and tell him that he has to start
-    calling Ms. Crab.
+    simple. You still tell Ms. Crab to call Dr. Urchin, then you tell
+    Dr. Urchin to start calling Ms. Crab.
     Easy as Suday Morning.
   </p>
   <p>
@@ -165,13 +172,13 @@
     other people (surprise! You are not the center of the universe).   
     Think about how you would send a message to someone, without sending
     it to them directly. Like if you wanted to passively aggressively
-    tell them they looked fat in a pair of jeans. You could send that
+    tell Bernard he looked fat in a pair of jeans. You could send that
     message to your friend, who would then tell their friend, who would
     then tell them.  
   </p>
   <p>Now, unlike you, they are not afraid of telling you that you suck
-    directly to your face. This is exactly what a cycle is!   You—>
-    Your friend —> Their Friend —> Them —> You(bad person)
+    directly to your face. This is exactly what a cycle is!  
+    <br>You—> Your friend —> Their Friend —> Them —> You (bad person)
   </p>
 
   <p>Cycles are very important for graph theory, since they determine if
@@ -208,17 +215,17 @@
   <p>
     You—> Bill, Lolita, Jimmy  
     <br>
+    <br>
     They are all clean so you go through their friends.
     <br>
     You —> Bill, Lolita, Jimmy —> Bill’s friends(Caleb, Sophie, Ben)…etc.
+    <br>
     <br>
     You add each person’s friends after searching them. By contrast you
     could search each friend individually, then their friends, then their
     friends friends.
   </p>
-
   <p>
-    <br>
     You —> Bill —> Caleb —> no friends
     <br>
     You —> Bill —> Sophie —> Jimmy —>… Too many to image
@@ -230,8 +237,8 @@
     This is called Depth First Search. Instead of searching your friends,
     then your friends friends, then your friends friends friends, etc.
     you search each friend’s connections first. Rooting out the Carmen’s
-    one friend at a time. The approach which is better depends on who you
-    think which way is more likely to find a Carmen faster.
+    one friend at a time. The better depends on which way will lead to
+    a Carmen the fastest.
   </p>
 
   <p> A more straightforward example would be, if you live in the city
@@ -239,16 +246,18 @@
     friends, and then their friends? No way! A peach farmer is more
     likely to be a friend of a friend’s friend. So you should pick the
     person who is most likely to have a peach farmer  in their network.
-    Like Jimmy, he knows everyone. That would be Depth First Search
+    Like Jimmy, he knows everyone. That would be Depth First Search.
   </p>
   <p> But if you are a farmer and you are looking for a peach farmer,
     your direct friends are more likely to have those connections, so
     you might use Breadth First Search instead, but that depends on the
     farmer.
   </p>
-  <p>For Big O notations, you will need to go to the follow up section.
-    You won’t though. I am surprised you made it this far. Like
-    seriously…
+  <p>Big O:
+
+  </p>
+
+  <p>For more on graphs, look at the complex page.
   </p>
 
   </div>
