@@ -29,20 +29,28 @@
 
           <li class="Chapter blue"><a href="searching.html" class='bright'>Ch 3: Searching</a></li>
 
-              <li class="Chapter blue subset">
-              <a href="terminology.html" class='bright'>3.1 Terminology</a>
-            </li>
-            <li class="Chapter blue subset">
+          <li class="Chapter blue subset">
+            <a href="terminology.html" class='bright'>3.1 Terminology</a>
+          </li>
+
+          <li class="Chapter blue subset">
             <a href="simple-search.html" class='bright'>3.2 Simple Search</a>
           </li>
           <li class="Chapter blue subset">
-          <a href="bfs-dfs.html" class='bright'>3.3 Graph Search</a>
-          </li>
-        <li class="Chapter blue subset">
-          <a href="summary.html" class='bright'>3.4 Summary</a>
+            <a href="bfs-dfs.html" class='bright'>3.3 Graph Search</a>
           </li>
 
-          <li class="Chapter red"><a href="../ch4/sorting.html">Ch 4: Sorting</a></li>
+          <li class="Chapter blue subset">
+            <a href="simple-sort.html" class='bright'>3.4 Simple Sorts</a>
+          </li>
+          <li class="Chapter blue subset">
+            <a href="hard-sort.html" class='bright'>3.5 Hard Sorts</a>
+          </li>
+          <li class="Chapter blue subset">
+            <a href="summary.html" class='bright'>3.6 Summary</a>
+          </li>
+
+          <li class="Chapter red"><a href="../ch4/sorting.html">TBD</a></li>
 
           <li class="Chapter orange"><a href="../ch5/architechture.html" class='bright'>Ch 5: Architechture</a></li>
 
@@ -128,6 +136,36 @@
       Big O would be O(N) where N is the number of nodes.
      </p>
 
+  <h4>Comparing BFS and DFS</h4>
+  <p>
+    If you think about this, one of those searches is actually slightly
+    more opitmal than the other. Did you figure it out? I am
+    <i class='Italics'>sure</i> you did. In an unbalanced tree, they
+    are the exact same, and there is little difference, but there is
+    and interesting edge case to think about. Let's assume a balanced
+    tree. That means the depth of the tree is lg n, and the tree has
+    similar or equal left and right sub-trees. If you do DFS, at most
+    you will go lg n elements deep, storing lg n in recursive stack
+    calls. In BFS, you will not do that, in the worst case you will
+    store half of all of the nodes on a graph.
+  </p>
+  <p>
+    Think of the way BFS works. You search all children of a node, then
+    you search each of the children's children. So, imagine yourself
+    on the second to last level of a tree. At this point, you will add
+    each of their children. If the tree is balanced, than as you go
+    farther down, the more children each node has. Meaning data is
+    concentrated towards the bottom, and on the final level, you have
+    half of all the data in the tree. So, when you BFS the final level
+    of a tree, you are storing half of the entire tree in memory. Ouch.
+  </p>
+    <h4>Sources/Further Reading</h4>
+    <ul>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Wikipedia - BFS</a></li>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank">Wikipedia - DFS</a></li>
+      <li> <a class= 'Sources' href="http://ask.metafilter.com/7921/If-you-killed-somebody-how-would-you-dispose-of-the-body-without-getting-caught" target="_blank">Not Suspicious</a></li>
+
+    </ul>
 
   </div>
 </div>
