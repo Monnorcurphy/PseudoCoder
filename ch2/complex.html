@@ -72,13 +72,13 @@
       <p>Now, jewelry boxes are not infinite, so you can only store a
         few pieces in there. That is a cache! Now the method for jewelry
         that we talked about is more specifically the idea for the LRU
-        cache. That is last recently used.   There are MANY other ways to
+        cache. That is least recently used.   There are MANY other ways to
         handle a cache, and a jewelry box, and I don’t want to get too
         mired down by them.
       </p>
       <p>
         This example is just like RAM and hard disk storage in computing.
-        Ram is much faster than hard disk storage. Caches work with RAM
+        RAM is much faster than hard disk storage. Caches work with RAM
         to allow users access to data that is used frequently, or
         whichever caching scheme is deemed appropriate.
       </p>
@@ -95,11 +95,11 @@
       </p>
       <p>
         The box is turned into a linked list, however this comes at a
-        price, access. We can no longer guarentee that we will be able
+        price, access. We can no longer guarantee that we will be able
         to access the values at a given key in constant time, since a
         linked list could be N elements long. This is why most hashes
         say that when a hash/dictionary becomes too packed, we must
-        rezise. This can happen when a box stores more than a certain
+        resize. This can happen when a box stores more than a certain
         number of items. It can also happen when a hash stores more
         items than originally anticipated. It resizes itself (maybe it
         had 10 boxes before, now it has 20), and assigns the values in
@@ -119,22 +119,32 @@
 
       <h4>Heaps</h4>
       <p>
-        I could try to compare a heap to a pile of rice, but it does not
-        seem to have any real use. A heap is unlike any thing that I have
-        experienced in my life, it is a heap. So let me explain how it
-        works.
+        Heaps do not easily lend themselves to explanations, but luckily
+        I am a boss and can explain anything through analogies. Heaps,
+        are like boarding groups for flights. Flights usually have
+        a first class, a business class, and a coach section.
+      </p>
+      <p> If an airline boarded the first class first, then business,
+        then coach, but no one was in business class, what happens? You
+        just board coach next. This is exactly like a min heap. Or max
+        heap, depending on how you feel about people who sit in first
+        class.
       </p>
       <p>
-        There are two types of heaps, a min heap, and a max heap. For
-        our purposes, let us say we have a min heap. Max heaps are just
-        like min heaps, except the opposite. If you don't understand,
-        have a toddler read this page and then explain it to you. A heap
-        is a pile of numbers, you can think of them as nodes. The top
-        node points to a value, in a min heap that is the lowest value.
+        There are two types of heaps, a min heap, and a max heap. In a
+        min heap the lowest value is on top. Let's say its 1. The values
+        below 1 are greater than 1, and less than the numbers beneath
+        them. Heaps are great for finding the minimum, or maximum, in
+        a group of numbers.
+      </p>
+      <p>
+        If you don't understand, have a toddler read this page and then
+        explain it to you. A heap is a pile of numbers, you can think of
+        them as nodes. The top node points to a value, in a min heap that
+        is the lowest value. In a max heap, that is the highest value.
         When you take the top node off of the heap, you replace it with
-        the next lowest value. A heap's head node looks at all the
-        children, finds the lowest value, and makes that the new head.
-        Simple.
+        the next value. A heap's head node looks at all the children,
+        finds the lowest value, and makes that the new head. Simple.
       </p>
 
       <p>Like this:
