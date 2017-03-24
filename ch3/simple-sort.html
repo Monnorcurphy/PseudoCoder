@@ -27,7 +27,7 @@
 
           <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter blue"><a href="searching.html" class='bright'>Ch 3: Searching</a></li>
+          <li class="Chapter blue"><a href="searching-sorting.html" class='bright'>Ch 3: Searching/sorting</a></li>
 
           <li class="Chapter blue subset">
             <a href="terminology.html" class='bright'>3.1 Terminology</a>
@@ -98,10 +98,6 @@
         is fully sorted, which means, in the best case it goes to O(N),
         but it remains a Big O of N^2.
       </p>
-
-
-
-      </p>
     <h4>Selection Sort</h4>
       <p> Let’s say you decide that your other method is no good.
         Drats, you might actually escape. But, thankfully for the prison
@@ -144,15 +140,12 @@
          It's O(N^2).
        </p>
 
-    <h4>Quick Sort</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
     <h4>Merge Sort</h4>
       <p>Imagine you had to sort three hundred tickets to a ball,
         that you weren’t invited to…again. Well, no worries, maybe if
         you sort this very efficiently, you can go to the ball this
         year, because everyone will be so impressed.
       </p>
-
       <p>
         What you do is, divide half the tickets into two piles each,
         then divide those piles into halves, and so on, until each pile
@@ -180,11 +173,58 @@
       better one, it will have it’s own page which you can look at.
       </p>
 
+      <h4>Quick Sort</h4>
+      <p>
+        Looking at the above sort you realize there is a faster way to
+        accomplish the same task. Instead of continually dividing the
+        tickets into smaller and smaller sizes, you will just randomly
+        split the tickets into two piles, with one ticket in the middle.
+        Any tickets higher in value than the middle ticket will go into
+        a pile on the right, and any value smaller will go into a pile
+        on the left.
+      </p>
+      <p>
+        This, my dear....frie....acquai....reader is called quick sort.
+        It is widely considered to be one of the fastest sorts...
+        <br>
+        <br>
+        <a class= 'Sources' href="http://cs.stackexchange.com/questions/3/why-is-quicksort-better-than-other-sorting-algorithms-in-practice" target="_blank">
+          Quicksort Is better</a>
+        <br>
+        <a class= 'Sources' href="https://www.quora.com/What-is-the-fastest-sorting-algorithm" target="_blank">
+          Fastest sorting alogrithm?</a>
+      </p>
+
+      <p>
+        It is not considered to be a stable sort, if you don't know what
+        that means, go back to the terminology section. Quick sort can
+        actually, in Big O terms be as bad as bubble sort. If, for example
+        the item you are sorting is in exact reverse order, then quick
+        sort will take much longer. However, there are simple ways
+        to check for these edge cases and plan accordingly. As such,
+        quick sort is said to be the fastest sorting alogrithm. Even
+        though in Big O terms, it is n lg n (same as merge sort).
+      </p>
+      <p>
+        Why is quick sort better? It has to do with memory. In merge sort
+        you are breaking things up into smaller and smaller sections,
+        and when you start to combine these sections, you will end up
+        merging data from all over your computers memory. If you remember
+        from caches (if you read it....), you will know that RAM is a
+        faster way to access items in a computers memory than a hard disk.
+        Quick sort allows a computer to deal with more items in RAM and
+        therefore keep a pseudo cache of items to compare, making it
+        faster for your computer.
+      </p>
+
       <h4>Sources/Further Reading</h4>
       <ul>
-        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Wikipedia - BFS</a></li>
-        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank">Wikipedia - DFS</a></li>
-        <li> <a class= 'Sources' href="http://ask.metafilter.com/7921/If-you-killed-somebody-how-would-you-dispose-of-the-body-without-getting-caught" target="_blank">Not Suspicious</a></li>
+        <li> <a class= 'Sources' href="http://cs.stackexchange.com/questions/3/why-is-quicksort-better-than-other-sorting-algorithms-in-practice" target="_blank">Detailed Explanation of Quicksort</a></li>
+        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">Wikipedia - Quick sort</a></li>
+        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Money_laundering" target="_blank">Asking for a Friend</a></li>
+        <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank">Wikipedia- Sorts</a></li>
+
+
 
       </ul>
 

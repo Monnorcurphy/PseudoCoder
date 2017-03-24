@@ -27,7 +27,7 @@
 
           <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter blue"><a href="searching.html" class='bright'>Ch 3: Searching</a></li>
+          <li class="Chapter blue"><a href="searching-sorting.html" class='bright'>Ch 3: Searching/sorting</a></li>
 
           <li class="Chapter blue subset">
             <a href="terminology.html" class='bright'>3.1 Terminology</a>
@@ -61,111 +61,25 @@
     </div>
   <div class= 'right-text'>
     <h2>Tricky Sorting</h2>
-    <h4>Dijikstra's</h4>
-      <p>
-        Let’s talk about maps. There are so many maps that we could talk about
-        like….Apple.
-      </p>
-      <p>
-        Alright, enough jokes. Google does maps, and unlike some they are
-        quite good at it. How do they solve the issue of determining the
-        shortest path from one place to another? Or the shortest time?  
-        So, what you do is calculate the distance to each point
-        individually. Each point that you have yet to reach is infinity
-        distance away. When you reach a new node, you replace the
-        existing value, if the value you calculated to reach it is
-        shorter. Here is how it would work.
-      </p>
-      <p>Let’s say you started at point A, and you needed to get to point
-        New York, because that punk Chris owes you money.  You could go
-        from:
-        <br>
-        <br>
-        A to B to New York
-        <br>
-        or
-        <br>
-        A to  C to B to New York.
-      </p>
-
-      <p>Here is how you would calculate. First, one step. From A to B
-        or A to C. If the distance from A to B is 10, and the distance
-        from A to C is 5, then you put in those values. Shortest
-        distance from A to B goes from infinity, to 10, and from A to C
-        goes to 5. Now, the next step. From B to NY is 48. From C to B
-        is 3.
-      </p>
-      <p>
-      The shortest distance to NY is set to 58, the shortest distance to
-      B goes to 8. Now, the last step goes from B to NY, which goes from
-      58 to 56.  This is Dijikstra’s algorithm. There are different
-      variants of it. Some forms only calculate the distance between two
-      points. The one I just explained assumed A was the source, and then
-      calculates the distance to every node. Updating as it goes along.
-      </p>
-
-    <h4>Heap sort</h4>
-      <p><i class= 'Italics'>Stop</i> If you don’t know what a heap is, go to the data structures
-        page.<i class= 'Italics'>Continue</i>
-      </p>
-      <p>A brief refresher (since I am sure NO ONE will not know what a
-        heap is, but everyone likes a nice reminder). Heaps are
-        semi-sorted piles of numbers. The are either max heaps (biggest
-        values on top) or min heaps (smaller values on top). There is
-        not guarantee of sorting, so just because you have 100 at the
-        top of a heap, doesn’t mean 99, 98, or any numbers above 10 are
-        in the heap. It just means 100, is on top, and is the largest
-        value (max heap).  Again, because it matters, overtime you add a
-        value to a heap, you have to adjust the heap until it is in the
-        right spot. That, is what we are about to talk about.
-      </p>
-      <p>
-        Since heaps are always numbers, there isn’t really a analogous
-        way to talk about them. In a max heap, the highest value is on
-        top, the two values below this value (the children nodes) are
-        lower than the top value, and are greater than their children,
-        and so on. This means, that as you go further down, you are
-        going to find lower values. So, what if you want to add a value
-        to a max heap? Easy, you add the value to to the top, pushing
-        the current top value to down to the right or left.
-      </p>
-      <p>
-        Now, you sort the heap, which looks like this. You compare the
-        top value to it’s two children. If it is larger, you are done.
-        If not, you pick the greater of the two children, put it on top.
-        You then compare the new spot where the node is, against its two
-        new children. You continue to do this, swapping the values,
-        until everything is in the proper place.
-      </p>
-
-      <p>
-        Min heaps work the same way, just with minimum values. You can
-        also add values to the bottom, and reverse it.  Now, how long does
-        this process take. Well in Big O, n log n. But so it’s its Big
-        Theta. Which makes it not the best n log n sorting algorithm. It
-        is also not stable. For more about that, check out these
-        resources.
-      </p>
-
-
-
     <h4>Radix</h4>
-      <p>Radix sort is the idea that you can sort numbers, by just
-        looking at parts of the number, or whatever you are sorting,
+      <p>Radix sort is the idea that you can sort numbers, or whatever
+        you are sorting, by looking at portions of the items
         rather than the whole thing at once. There are two types of
-        radix sort, each of which are better for different things.
+        radix sort, each having particular use cases.
       </p>
       <p>
-        LSD- Least significant digit, not the drug one. This is
+        LSD- not the drug one, least significant digit. This is
         typically more useful for numbers. You start at the end of
-        every thing you are sorting, putting them in order. Like so:
+        everything you are sorting, putting them in order. Like so:
         <br>
         <br>
-        941 —> 1    THEN	941 —> 4  THEN	941 —> 9
+        941 —> 1    941 —> 4| 1  	465 —> 4| 65
         <br>
-        573 —> 3   		573—> 7  		573—> 5
         <br>
-        465—> 5			465 —> 6		465 —> 4
+        573 —> 3   		465 ->6| 5  		573—> 5| 73
+        <br>
+        <br>
+        465—> 5			573 —> 7| 3		941 —> 9| 41
       </p>
 
       <p>
@@ -193,15 +107,99 @@
         1 —> 10 —> 2
       </p>
 
+    <h4>Heap sort</h4>
+      <p><i class= 'Italics'>Stop</i> If you don’t know what a heap is, go to the data structures
+        page.<i class= 'Italics'>Continue</i>
+      </p>
+      <p>A brief refresher (since I am sure NO ONE will not know what a
+        heap is, but everyone likes a nice reminder). Heaps are
+        semi-sorted piles of numbers. The are either max heaps (biggest
+        values on top) or min heaps (smaller values on top). There is
+        not guarantee of sorting, so just because you have 100 at the
+        top of a heap, doesn’t mean 99, 98, comes next. In fact, the
+        remaining numbers in a heap could be all under the value of 10.
+        It just means 100, is on top, and is the largest value (max
+        heap).   Again, because it matters, overtime you add a
+        value to a heap, you have to adjust the heap until it is in the
+        right spot. That, is what we are about to talk about.
+      </p>
+      <p>
+        Since heaps are always numbers, there isn’t really a analogous
+        way to talk about them. In a max heap, the highest value is on
+        top, the two values below this value (the children nodes) are
+        lower than the top value, and are greater than their children,
+        and so on. This means, that as you go further down, you are
+        going to find lower values. So, what if you want to add a value
+        to a max heap? Easy, you add the value to to the top, pushing
+        the current top value to down to the right or left.
+      </p>
+      <p>
+        Now, you sort the heap, which looks like this. You compare the
+        top value to it’s two children. If it is larger, you are done.
+        If not, you pick the greater of the two children, put it on top.
+        You then compare the new spot where the node is, against its two
+        new children. You continue to do this, swapping the values,
+        until everything is in the proper place.
+      </p>
+
+      <p>
+        Min heaps work the same way, just with minimum values. You can
+        also add values to the bottom, and reverse it.   Now, how long does
+        this process take. Well in Big O, n log n.
+      </p>
+
+      <h4>Dijikstra's</h4>
+        <p>
+          Let’s talk about maps. There are so many companies who make maps
+          that we could talk about Tom Tom, UberNav, Apple....
+        </p>
+        <p>
+          Alright, enough jokes. Google does maps, and unlike some they are
+          quite good at it. How do they solve the issue of determining the
+          shortest path from one place to another? Or the shortest time?  
+          So, what you do is calculate the distance to each point
+          individually. Each point that you have yet to reach is infinity
+          distance away. When you reach a new node, you replace the
+          existing value, if the value you calculated to reach it is
+          shorter. Here is how it would work.
+        </p>
+        <p>Let’s say you started at point A, and you needed to get to point
+          New York, because that punk Chris owes you money.  You could go
+          from:
+          <br>
+          <br>
+          A to B to New York
+          <br>
+          or
+          <br>
+          A to  C to B to New York.
+        </p>
+
+        <p>Here is how you would calculate. First, one step. From A to B
+          or A to C. If the distance from A to B is 10, and the distance
+          from A to C is 5, then you put in those values. Shortest
+          distance from A to B goes from infinity, to 10, and from A to C
+          goes to 5. Now, the next step. From B to NY is 48. From C to B
+          is 3.
+        </p>
+        <p>
+        The shortest distance to NY is set to 58, the shortest distance to
+        B goes to 8. Now, the last step goes from B to NY, which goes from
+        58 to 56.  This is Dijikstra’s algorithm. There are different
+        variants of it. Some forms only calculate the distance between two
+        points. The one I just explained assumed A was the source, and then
+        calculates the distance to every node. Updating as it goes along.
+        </p>
+
     <h4>A* (A Star, just like you aren't)</h4>
     <p>
       Similar to Dijikstra’s, we could image that we must compute the
       lowest distance between two nodes. But instead of traveling
       through all the nodes, we take guesses at how to best reach our
-      destination.  We must know our staring position, and our ending
+      destination.   We must know our staring position, and our ending
       position, which we do, A —> New York. Now, we calculate the
       distance between our points, and the points distance from New
-      York. And try to take the best path based on that.  You can see the
+      York. And try to take the best path based on that.   You can see the
       assumptions this makes, we have to know which way is closer to NY,
       but can you see the issues. What if the next spot is closer, but
       there are obstructions which inhibit the travel from the closer
@@ -216,9 +214,10 @@
     </p>
     <h4>Sources/Further Reading</h4>
     <ul>
-      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Breadth-first_search" target="_blank">Wikipedia - BFS</a></li>
-      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Depth-first_search" target="_blank">Wikipedia - DFS</a></li>
-      <li> <a class= 'Sources' href="http://ask.metafilter.com/7921/If-you-killed-somebody-how-would-you-dispose-of-the-body-without-getting-caught" target="_blank">Not Suspicious</a></li>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Sorting_algorithm" target="_blank">Wikipedia- Sorts</a></li>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/A*_search_algorithm" target="_blank">Wikipedia - A*</a></li>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">Wikipedia -Dijkstra's</a></li>
+      <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Radix_sort" target="_blank">Wikipedia -Radix</a></li>
 
     </ul>
 

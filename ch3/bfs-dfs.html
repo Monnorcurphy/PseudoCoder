@@ -27,7 +27,7 @@
 
           <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
 
-          <li class="Chapter blue"><a href="searching.html" class='bright'>Ch 3: Searching</a></li>
+          <li class="Chapter blue"><a href="searching-sorting.html" class='bright'>Ch 3: Searching/sorting</a></li>
 
           <li class="Chapter blue subset">
             <a href="terminology.html" class='bright'>3.1 Terminology</a>
@@ -140,14 +140,13 @@
   <p>
     If you think about this, one of those searches is actually slightly
     more opitmal than the other. Did you figure it out? I am
-    <i class='Italics'>sure</i> you did. In an unbalanced tree, they
-    are the exact same, and there is little difference, but there is
-    and interesting edge case to think about. Let's assume a balanced
-    tree. That means the depth of the tree is lg n, and the tree has
-    similar or equal left and right sub-trees. If you do DFS, at most
-    you will go lg n elements deep, storing lg n in recursive stack
-    calls. In BFS, you will not do that, in the worst case you will
-    store half of all of the nodes on a graph.
+    <i class='Italics'>sure</i> you did. In an unbalanced tree, there is
+    little difference, but there is an interesting edge case to think
+    about. Let's assume a balanced tree. That means the depth of the tree
+    is lg n, and the tree has similar or equal left and right sub-trees.
+    If you do DFS, at most you will go lg n elements deep, storing lg n
+    in recursive stack calls. In BFS, you will not do that, in the worst
+    case you will store half of all of the nodes on a graph.
   </p>
   <p>
     Think of the way BFS works. You search all children of a node, then
