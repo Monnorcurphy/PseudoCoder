@@ -52,86 +52,205 @@
   <div class= 'right-text'>
   <h2>Part 2</h2>
   <h4>Dictionary/Hash- Teachers in a Room</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <h4>Linked Lists- People Call Their Neighbors</h4>
-  <p>class linkedList:
-  def __init__(self, value= None, future= None):
-    self.value = value
-    self.future = future
+  <p>
+    A new data structure means a new example, isn’t this fun? No?
+    Well no one asked your opinion anyway. Since, the school example from
+    the previous section went over so well, we are going to continue to
+    use it.
+  </p>
 
-  def listify(self, array):
-    if len(array) ==0: return None
-    i = 1
-    first = linkedList(array[0], None)
-    last = first
-    future = None
-    while i < len(array):
-      future = linkedList(array[i], None)
-      last.future = future
-      last = future
-      i += 1
+  <p>
+    From here on out I am going to call them hashes. Imagine that you
+    have a bunch of teachers, each of whom is given a room. All of the
+    room assignments are on a directory. Finding out if a given room has
+    been assigned would be an easy task, just look in the directory. If
+    it is there, it has been assigned, if not, then it hasn’t.
+  </p>
 
-    return first
+  <p>
+    That is how hashes work. So, finding a room would be easy, it is
+    either on the directory or not. So that would take no time at all.
+  </p>
+  <p>
+    Searching depends on what you are looking for. Imagine if the
+    directory just had room assignments, but not who was assigned there.
+    You would have to go to each room to check. But if you were just
+    searching for the rooms, then it would still be simple.
+  </p>
 
-
-def display(head):
-  while head:
-    print (head.value)
-    head = head.future
-  return
-
-def reversedLinks(head):
-  prev = None
-  current = head
-  future = head.future
-
-  while future is not None:
-    current.future = prev
-    prev = current
-    current = future
-    future = current.future
-
-  current.future = prev
-  return current
-
-def pally(head):
-  if head is None: return False
-  if head.value is None: return False
-  tortoise= head
-  hare = head
-  queue = []
-  odd = False
-  while hare.future is not None:
-    if hare.future.future is not None:
-      odd = True
-      queue.append(tortoise.value)
-      tortoise = tortoise.future
-      hare = hare.future.future
-    else:
-      odd = False
-      queue.append(tortoise.value)
-      hare = hare.future
-      tortoise = tortoise.future
-
-  if odd:
-    tortoise = tortoise.future
-
-  while len(queue) > 0:
-    if queue.pop() != tortoise.value:
-      return False
-    tortoise = tortoise.future
-
-  return True
-
-a = linkedList().listify([])
-print(pally(a))
-
-
+  <p>
+    Removing or adding people to a room would be easy. If a room is
+    unused, add a teacher to it. If it is in use, then you just remove
+    it. Simple as pie.
+  </p>
+  <p>
+    So what is the Big O for accessing, inserting, and deleting from a
+    hash?
+    <br>
+    <br>
+    Insertion - O(1)
+    <br>
+    Deletion - O(1)
+    <br>
+    Access - O(1)
+    <br>
+    Searching - O(1) [As long as you assign keys and values correctly]
 
   </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+
+  <h4>Linked Lists- People Call Their Neighbors</h4>
+  <p>
+  Let’s say you are the principal at a school, and you want to talk to
+  every teacher you are in an office. But you are a lazy principal, so
+  you don’t want to call every teacher, you want to call one (or maybe
+  two) teachers, and then have them call the rest. So you assign the
+  first teacher to call the second one, the second one to call the third,
+  and so on.
+  </p>
+  <p>This is how a linked list works. Data is held in nodes, which have
+    a head, a tail, and can either be singly linked (1-> 2–> 3) or
+    doubly linked (1-> 2–> 3 AND 3-> 2–> 1).    Now, imagine you wanted to
+    find a teacher with a particular name using this scheme, there is
+    only one way to do it. Call the first teacher, and then go through
+    each one until you find it.
+  </p>
+  <p>
+    Hiring a new teacher would be easy, since all you would have to do
+    is tell the last teacher that they have to call in another teacher.
+    And so too would firing them. You just call in the teacher before
+    the one you are firing, and tell them to call the person after the
+    teacher you are firing.   That might be slightly confusing so let’s
+    use an example:
+    <br>
+    <br>
+    Ms. Crab calls Mr. Scwalksky
+    Mr. Scwalksky calls Dr. Urchin
+  </p>
+  <p>
+    We all know we have to fire Mr. Scwalksky, and we know why too. He
+    has been mean to Jimmy. When you fire Mr. Scwalksky, you call in Ms.
+    Crab and tell her she is going to start calling Dr. Urchin instead.
+  </p>
+  <p>
+    In a system where you had teachers who called two people (the person
+    after them, and the person before them) then this task is still
+    simple. You call in Dr. Urchin and tell him that he has to start
+    calling Ms. Crab.
+    Easy as Suday Morning.
+  </p>
+  <p>
+  So what are the Big O notations of these operations?
+  <br>
+  <br>
+  Access - O(N)
+  <br>
+  Insertion - O(1)
+  <br>
+  Deletion - O(1)
+  <br>
+  Searching- O(N)
+  </p>
   <h4>Graphs- Human Interactions</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Graphs are a hard data structure to imagine. I mean, not for anyone
+    over the age of two, except for you, but I am trying to be
+    patronizing…or….helpful? I always get those two mixed up.
+  </p>
+  <p>
+    Graphs are like relationships, horrible. Now imagine all
+    relationships were treated as equivalent. You either have a
+    relationship with someone (your parent, your lover, your tax
+    attorney) or you don’t. Your connections have relationships with
+    other people (surprise! You are not the center of the universe).   
+    Think about how you would send a message to someone, without sending
+    it to them directly. Like if you wanted to passively aggressively
+    tell them they looked fat in a pair of jeans. You could send that
+    message to your friend, who would then tell their friend, who would
+    then tell them.  
+  </p>
+  <p>Now, unlike you, they are not afraid of telling you that you suck
+    directly to your face. This is exactly what a cycle is!   You—>
+    Your friend —> Their Friend —> Them —> You(bad person)
+  </p>
+
+  <p>Cycles are very important for graph theory, since they determine if
+    a graph is a tree or not (as does direction). What is a tree? And
+    directed graphs? It’s very rude to ask questions while I am typing
+    this. You either trust that I will get to it, or you don’t. I know
+    you, you don’t trust me. That’s because you are a bitter and lonely
+    person. 
+  </p>
+  <p>
+    Now let’s say that you really hated the name Carmen, because that is
+    something that you would do. That’s what people think of you. And
+    you are the type of person to take this next level. Not only do you
+    not want friends named Carmen, but you don’t want to be friends with
+    anyone who knows anyone named Carmen. There are two ways to handle
+    that situation.
+  </p>
+  <p>First, you could go through all of your friends, asking their names,
+    and if anyone is named Carmen, you cut them out (don’t kill them, as
+    this is highly illegal and your defense would be flimsy at best).
+    Next, you go through your friends friends, cutting out friends who
+    have friends named Carmen. But your craziness doesn’t stop there,
+    you have to check your friends friends friends, since if they know a
+    Carmen, then through the transitive property your friend knows a
+    Carmen, and then you know a Carmen. Dear GOD!
+  </p>
+
+  <p>
+    That is called Breadth First Search. I will show you an example, but
+    it is going to take the most imagination of all. We have to pretend
+    you have friends.
+  </p>
+
+  <p>
+    You—> Bill, Lolita, Jimmy  
+    <br>
+    They are all clean so you go through their friends.
+    <br>
+    You —> Bill, Lolita, Jimmy —> Bill’s friends(Caleb, Sophie, Ben)…etc.
+    <br>
+    You add each person’s friends after searching them. By contrast you
+    could search each friend individually, then their friends, then their
+    friends friends.
+  </p>
+
+  <p>
+    <br>
+    You —> Bill —> Caleb —> no friends
+    <br>
+    You —> Bill —> Sophie —> Jimmy —>… Too many to image
+    <br>
+    You—> Bill —> Ben —> Dr. Urchin —>…who cares, you get it.
+  </p>
+
+  <p>
+    This is called Depth First Search. Instead of searching your friends,
+    then your friends friends, then your friends friends friends, etc.
+    you search each friend’s connections first. Rooting out the Carmen’s
+    one friend at a time. The approach which is better depends on who you
+    think which way is more likely to find a Carmen faster.
+  </p>
+
+  <p> A more straightforward example would be, if you live in the city
+    and you are looking for a peach farmer. Are you going to search your
+    friends, and then their friends? No way! A peach farmer is more
+    likely to be a friend of a friend’s friend. So you should pick the
+    person who is most likely to have a peach farmer  in their network.
+    Like Jimmy, he knows everyone. That would be Depth First Search
+  </p>
+  <p> But if you are a farmer and you are looking for a peach farmer,
+    your direct friends are more likely to have those connections, so
+    you might use Breadth First Search instead, but that depends on the
+    farmer.
+  </p>
+  <p>For Big O notations, you will need to go to the follow up section.
+    You won’t though. I am surprised you made it this far. Like
+    seriously…
+  </p>
+
   </div>
 </div>
 </body>
