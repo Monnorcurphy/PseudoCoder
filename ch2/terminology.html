@@ -55,17 +55,76 @@
     </div>
   <div class= 'right-text'>
   <h2>Data Structures</h2>
-  <h4>Abstract Data Type</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h4>Abstract Data Type v.s. Data Structure</h4>
+  <p>An abstract data type is an idea, a data structure the building
+  that idea. If you have plans for a building, you can talk about how
+  that building will have a certain number of bathrooms, how tall each
+  floor will be, what it will be made out of. You can guarentee, in theory
+  that the building will be able to perform different functions with a
+  certain amoutn of efficiency. This is an abstract data type.
+</p>
+  <p>
+    In reality, the building gets built out of wood, there is only 1
+    bathroom in a 6 story building, and all of the businesses go under
+    in the first year. That is a data structure. It is possible for a
+    data structure to accomplish tasks in similar run times to an
+    abstract data type, but you have to know what you are doing, and we
+    have established, that is never going to happen.
+  </p>
   <h4>Hashing</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    If I wanted to give you some stuff, but I wanted each thing to be
+  stored in its own, individual box, how would you do it? For a small
+  enough number of things, you could just label each box, 1..2..3..etc.
+  But what if I wanted you to be able to quickly find whatever was in
+  each box? Well, then you would need to find a way to input the name,
+  description, or some other characteristic of the item, and assign it
+  to a box. This is what a hashing function does.
+</p>
+<p>
+  It takes input, and runs it through an equation, assigning the unique
+  value that is given to a box. For a more indepth idea of how this works
+  read the "Hash Functions" source below. The idea basically is that if
+  you put in "Hello" and "Help" two different values would come out, and
+  these values would then be mapped to a specific box, making it easy to
+  find these values again. Sometimes, values may get mapped to the same
+  box which is called a collision. I will cover more on that later.
+</p>
+  <h4>Nodes</h4>
+  <p>
+    A node is like an egg. It contains some data, and it is self
+    contained. Generally, nodes are used when we talk about graphs and
+    linked lists. Nodes can have children, parents, or edges. If a
+    node has no parent, it is generally called the root (in a tree), or
+    the head (in a linked list, or a tree, depending). If a node has no
+    children it is called a leaf (in a tree), or the tail (in a linked
+    list). We will discuss more about trees (which are types of graphs),
+    and linked lists in this chapter.
+  </p>
   <h4>Cycles</h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>
+    A graph is a series of connected nodes. Nodes can be connected in
+    many ways. Cycles are relevant to this, because it can tell us if
+    we are dealing with a graph, or a tree. A graph with a cycle, is not
+    a tree. Let me repeat that, IF A GRAPH HAS A CYCLE IT IS NOT A TREE.
+    That is important to remember, and very easy. So remember it.
+  </p>
+  <p>
+    A cycle looks like this. I have a friend, Janice, Janice has a friend
+    Tommy, Tommy has a friend, me. That is a cycle. If Tommy was not
+    friends with me, then the only way for you to get from Tommy to me
+    would be to go through Janice. Detecting cycles is a common question
+    in programming interviews, so it is good to know about.
+  </p>
+
   <h4>Sources/Further Reading</h4>
   <ul>
-    <li> <a class= 'Sources' href="https://en.wikipedia.org/wiki/Abstract_data_type">Wikipedia - Abstract Data Type</a></li>
-    <li> <a class= 'Sources' href="https://www.quora.com/How-do-you-explain-NP-Complete-and-NP-hard-to-a-child"></a></li>
-    <li> <a class= 'Sources' href="https://www.quora.com/What-are-P-NP-NP-complete-and-NP-hard"></a></li>
+    <li><a class= 'Sources' href="https://en.wikipedia.org/wiki/Abstract_data_type">Wikipedia - Abstract Data Type</a></li>
+    <li><a class= 'Sources' href="https://en.wikipedia.org/wiki/Hash_function">Wikipedia - Hash Functions</a></li>
+    <li><a class= 'Sources' href="http://pets.webmd.com/dogs/guide/house-training-your-puppy">Potty Training</a></li>
+    <li><a class= 'Sources' href="https://en.wikipedia.org/wiki/Node_(computer_science)">Nodes</a></li>
+
+
 
   </ul>
 
