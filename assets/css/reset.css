@@ -38,6 +38,12 @@ li.chapter{
 	font-size:18px;
 }
 
+p, h4, ul{
+	padding: 20px;
+	width: 80%;
+	margin: auto;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -113,5 +119,5 @@ p{
 img{
 	padding: 10px;
 	height: 300px;
-	
+
 }
