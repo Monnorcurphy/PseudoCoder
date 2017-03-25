@@ -109,3 +109,9 @@ p{
   font-weight: bold;
   cursor: pointer;
 }
+
+img{
+	padding: 10px;
+	height: 300px;
+	
+}
