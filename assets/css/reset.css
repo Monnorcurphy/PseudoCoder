@@ -38,11 +38,10 @@ li.chapter{
 	font-size:18px;
 }
 
-p, h4, ul{
-	padding: 20px;
+h5{
 	width: 80%;
 	margin: auto;
-}
+	}
 
 ol, ul {
 	list-style: none;
@@ -79,9 +78,6 @@ h4{
   padding: 20px;
 }
 
-h5{
-	padding-left: 14px;
-}
 
 p{
   padding: 20px;
@@ -98,15 +94,16 @@ p{
     color: slategrey;
 }
 
-.quiz{
-  padding: 0;
-  margin: 0;
-  padding-left: 14px;
+
+p, h4, ul{
+	padding: 20px;
+	width: 80%;
+	margin: auto;
 }
 
 .quiz > li{
   padding: 4px;
-  margin: 4px;
+
 }
 
 .document{
@@ -120,4 +117,7 @@ img{
 	padding: 10px;
 	height: 300px;
 
+}
+li.Chapter{
+  color: white;
 }

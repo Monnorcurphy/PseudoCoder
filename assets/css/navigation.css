@@ -14,7 +14,8 @@
   padding: 20px;
 }
 
-li > a{
+
+li.chapter > a{
   color: white;
   padding: 10px;
   width: 80%;
@@ -28,6 +29,12 @@ li{
 
 .support{
   display: inline-flex;
+}
+
+@media all and (max-width: 1200px){
+  .support{
+    display: block;
+  }
 }
 
 .main{
