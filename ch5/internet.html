@@ -55,80 +55,142 @@
 			</nav>
 		</div>
   <div class= 'right-text'>
-    <h2>intnert</h2>
-    <h4>stuff</h4>
+    <h2>How the Internet Works</h2>
+    <h4>Your Computer</h4>
     <p>How the internet works- Talk about this points(routers, domain name servers, load balancers, firewalls)? 
-    Everything that accesses the internet has an Internet Protocol address. You connect to the internet through an ISP, which gives you an IP address that is unique.
 
-    TCP/IP protocol stack. Your signal goes from an application, to the TCP (directs packets to a specific application on a computer), to the IP (directs packets to a specific computer using an IP address) which goes to the hardware (converts binary packet data to network signals…and back).
+    <p>
+      If you were in your house, but you needed to get a few things you
+      would assign different tasks to your good for nothing housemates.
+      Like if you needed to get eggs, you would give your daughter
+      money, who would then give it to your wife (who you aren't fighting
+      with, it's just you hate her face).
+    </p>
+     <p>Your wife, would give the money to your son, who would go buy eggs,
+      and use the extra to buy beer. He would give the eggs to his mother,
+      who would give it to your daughter, and then you could throw the
+      eggs at your wife's car.
+      <br>
+      <br>
+      That is how the internet works!
+    </p>
 
-    Big enough messages and data are broken up into packets.
+    <p>
+      Your computer sends a signal down the TCP/IP protocol stack. The
+      signal goes from an application (your daughter) to the IP (your wife),
+      down to the hardware layer (your son). The hardware layer breaks
+      messages into binary and, if the messages are too large, into
+      packets. Before we talk about where the packets go, let's talk about
+      how your computer deals with packets.
+    </p>
 
-    Your computer sends the signal down the chain until it is sent to your ISPs router, examines the destination and sends it to the appropriate location. Then it goes back up the stack (bottom to top) until the message reaches your application.
+    <p>
+      When your computer recieves packets, the hardware layer converts
+      them from binary into whatever information (http, doc, etc.). It
+      organizes this information and sends it to the IP layer. The IP
+      then sends the information to the application, which handles the
+      readability for you.
+    </p>
 
-    Internet infrastructure- There are networks which make up the backbone of the internet (Network Service Providers, NSPs). These NSPs are required to connect to Network Access Points (NAPs). At the NAPs your packets may jump from one NSP to another. There are also Metropolitan Area Exchanges (MAEs) which are like NAPs but are privately owned. Both NAPs and MAEs are referred to as Intent Exchange Points (IXs). NSPs sell band with to smaller networks (ISPs).
+    <h4>NSPs and ISPs</h4>
+    <p>
+      In order to get the eggs, your son had to drive on roads. These
+      roads may be owned by California, or by a private citizen. And
+      on his way he may have to take several different roads, made
+      and owned by different people. This, in essence, is an NSP.
+    </p>
 
-    Your packets are sent to a router, which looks to see if it knows where the IP address is, if it does not it will send it up a chain of routers until it reaches the NSP backbone, and then back down the chain.
+    <p>
+      NSPs (Network Service Providers) make up the backbone of the
+      internet, which are required connect to Network Access Points (NAPs).
+      When your packets reach a NAP, they may jump from one access point
+      to another. Metropolitan Area Exchanges(MAEs), are like Network Access
+      Points, but are privately owned. These two (NAPs and MAEs) make
+      up Internet Exchange Points (IXs).
+    </p>
+    <p>
+      NSPs sell bandwith to Internet Service Providers (ISPs). You
+      have dealt with an ISP, as they are the ones who provide you
+      access to the internet. So in essence, your ISP acts as a bully
+      who stands outside your door, demanding a toll monthly so your son
+      can buy eggs.
+    </p>
 
-    Domain Name Service is a distributed database which keeps track of computer’s names and their IP addresses. DNS servers hold portions of the database, and if they don’t know where to find the IP address you are looking for, you will be again sent up a hierarchy of DNS servers until it is found.
+    <h4>Looking for your Information</h4>
+    <p>
+      Now, let's say that your mom told your son to go to a specific
+      market, like Safeway on the corner of 40th and Buena Vista. If
+      your son didn't know how to get there, and he didn't have GPS, he
+      may call a friend. If the friend didn't know, he could call someone
+      else, until someone gave him directions.
+    </p>
 
-    HTTP and the WWW- HTTP is the protocol that web browsers and servers use to communicate with one another, not to be confused with HTML which is used to write web pages. When you type a url into a page, you ping the DNS server, it finds the page, requests something from the web server (a continually connected computer). The web server responds, or you get 404ed.
+    <p>
+      This is how your computer finds your information. Your packets are
+      sent to a router. The router looks to see if it knows where the
+      IP address you are looking for is. If it does not, it asks another
+      router, going up a chain, which will eventually stop at the NSP
+      backbone.
+    </p>
 
-    TCP receives packets, and makes sure they are in the correct order, IP does not do this. It just sends things wherever, and in any order.
-     Firewalls are a network security system which controls the incoming/outgoing traffic, based on some predetermined rules. Firewalls can either be network based, or host based. They can also be software based or hardware based.
+    <p>
+      It gets slightly more complicated, since the name you use to find
+      a website, and the one your computer is looking for is slightly
+      different. You go to www.Iamsad.com, but your computer looks for
+      an IP address, and the router it asks is called a Domain Name
+      Service.
+    </p>
 
+    <p>
+      A domain name service is a database (a list, if you want), which
+      tracks different IP addresses. But, it cannot hold all of the IP
+      addresses to the entire internet.
+    </p>
+
+    <h4>Other Pertinent Information</h4>
+    <p>HTTP and the WWW- HTTP is the protocol that web browsers and
+      servers use to communicate with one another, not to be confused
+      with HTML which is used to write web pages. When you type a url
+      into a page, you ping the DNS server, it finds the page, requests
+      something from the web server (a continually connected computer).
+      The web server responds, or you get 404ed.
+    </p>
+    
+    <!-- Blog Posts -->
+    <!--Firewalls -->
+     <!-- Firewalls are a network security system which controls the incoming/outgoing traffic, based on some predetermined rules. Firewalls can either be network based, or host based. They can also be software based or hardware based.
     Network based firewalls can be WAN or LAN based (Local Area Network, or Wide Area Network). They are often daemon, services integrated into the operating system, or endpoint security protection.
-
     They can be network layer, application layer, proxies, or network address translation. Network layer means they monitor packets, and are only allowed past if they follow certain predefined rules.
+    Application layer firewalls look at packets received and sent monitoring them for content. They work by determining if a process should accept a connection. -->
 
-    Application layer firewalls look at packets received and sent monitoring them for content. They work by determining if a process should accept a connection.
-
-    Proxies act as firewalls by responding to input packets (like connection requests) as an application firewall.
-
+    <!--Proxies, VPNs  -->
+    <!-- Proxies act as firewalls by responding to input packets (like connection requests) as an application firewall.
     Reverse Proxy- Retrieves resources on behalf of a client from one or more servers, and returns the information as if the proxy had the information. They can be useful to stop DDos. Can also spread out the load amongst multiple servers so that no one server gets overloaded, and can compress content.
-
     Denial of service attacks- Are attacks by flooding a sites/companies infrastructure in different ways. Usually it involves illegitimate users requesting information so that legitimate users cannot access their content. Ddos use botnets, because they require a lot of computing power, while DOS usually involves only one person using a script of some sort.
-
-    Network Address Translation - A method of remapping one IP address space into another, to hide a member or network.
-
-    IP address spoofing- creation of IP packets with a false IP address in order to hide the identity of a sender, can be accomplished by using a proxy server.
-
-    Daemon is a computer program that runs as a background process, and to distinguish themselves they end in d, usually. This term comes from Maxwell’s Demon (The one which breaks the second law of thermodynamics), and has no morality (like Christian Demons, it is a Greek demon).
-
-    DHCP- Dynamic Host Configuration Protocol is way to designate IP addresses, interfaces, and services. It reduces the need for a network administrator.
-
     VPN, a virtual private network, can be used for things like an employee accessing a company’s intranet, or to get around geo-restrictions and censorship. VPNs work by going through a series of dedicated connections (point to point, like a child’s tin can), virtual tunneling, or traffic encryption.
-
     Tunneling protocol- allows a user to access or provide a service. Works by having the data portion of a packet (payload) carry the packets that actually provide the service.
-
     Endpoint security - means that devices follow a definite level of compliance and standards.
+    Layered Security - combining multiple security controls for protection. The idea is to slow down attackers, consuming time, until the security resources can be brought against the attacker. -->
 
-    Layered Security - combining multiple security controls for protection. The idea is to slow down attackers, consuming time, until the security resources can be brought against the attacker.
+    <!-- Ip addresses -->
+    <!-- Network Address Translation - A method of remapping one IP address space into another, to hide a member or network.
+    IP address spoofing- creation of IP packets with a false IP address in order to hide the identity of a sender, can be accomplished by using a proxy server.
+    DHCP- Dynamic Host Configuration Protocol is way to designate IP addresses, interfaces, and services. It reduces the need for a network administrator. -->
 
-    Load balancing seeks to maximize throughput, minimize response time, and avoid overload of a single resource. Load balancing is usually achieved through a multilayer switch or a Domain Name System(DNS). Divides traffic between network interfaces on a network socket. (OSI 4 or layer 7(HTTP)).
-
+    <!-- Load Balancing -->
+    <!-- Load balancing seeks to maximize throughput, minimize response time, and avoid overload of a single resource. Load balancing is usually achieved through a multilayer switch or a Domain Name System(DNS). Divides traffic between network interfaces on a network socket. (OSI 4 or layer 7(HTTP)).
     Round robin- multiple IP addresses are associated with a single domain and clients are given ip for a limited time.
-
     DNS Delegation- Depending on where the domain comes from, the load balancer will ping the server, and send the traffic to the best server. Generally, this is going to be the server which is geographically closest, but in the case that it isn’t, a different server can serve up the information.
-
     Client side- The clients are given a list of ips, and the client selects which one they would like. It is argued this approach is better than round robin because of caching issues with the round robin approach. In the case a server is down, i
+    Channel bonding implies a division of traffic between physical interfaces at a lower level. (OSI 2 or 3) Usually involves communication between networks and operating systems. -->
 
-    Channel bonding implies a division of traffic between physical interfaces at a lower level. (OSI 2 or 3) Usually involves communication between networks and operating systems.
 
-    DNS- naming system for computers, services, or other resources connected to the internet.  It delegates the responsibility of assigning domain names, and mapping those names to servers. It is written in ASCII, which is troublesome for internationalized domain names, which brought about IDNA which maps unicode strings to valid ins characters.
+    <!--OSI  -->
+    <!-- Multi-layer switch- a computer device that switches on different OSI layers.
+    OSI- a computing model for transferring data. It is made up of 7 layers, including physical, data link, network, transport, session, presentation, application. -->
 
-    Multi-layer switch- a computer device that switches on different OSI layers.
-
-    OSI- a computing model for transferring data. It is made up of 7 layers, including physical, data link, network, transport, session, presentation, application.
-
-    URL- Uniform Resource Locators
-
-    Throughput- maximum rate at which something can be produced or processed.
-
-    The network throughput is the rate of successful message delivery over a communication channel.
-
+    <!-- Throughput  and latency-->
+    <!-- The network throughput is the rate of successful message delivery over a communication channel.
     The system throughput- sum of the data rates that are delivered to all terminals.
-
     Throughput can be affected by the physical medium, processing power, and end-user behavior.
-
-    Latency-  time delay between the cause and effect of some physical change. Latency can never be faster than the speed of light, because of physics.</p>
+    Latency-  time delay between the cause and effect of some physical change. Latency can never be faster than the speed of light, because of physics.</p> -->

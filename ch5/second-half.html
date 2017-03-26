@@ -56,143 +56,102 @@
 
   <h2>More stuffs</h2>
   <h4>Differenct stuffs</h4>
-  <p>What are the process states?
+  <p>
 
+    <!--Process States  -->
   First- created. The process scheduler assigns it the waiting state
-
   Second- The process is waiting, and waits until the scheduler does a context switch and load the process into the processor
-
   Third- the process becomes running, with the processor executing the process instructions.
-
   Third.5 - If the process needs to wait for a resource it is blocked, and waits until it gets the input (a file, user input, etc.)
-
   Fourth- Once the process has finished, it is terminated by the operating system.
 
+  <!--Context Switches  -->
   What is a context switch? How do you determine when to switch? How does user and kernel mode switching factor in? And how does busy waiting factor in?
-
   The process of storing and restoring the state of a process or thread. This enables multiple processes to share a single CPU, and is essential to multitasking operating system.
-
   Multitasking- Schedulers determine when processes switch. Pre-emptive multitasking has a timer, which ensures that processes switch and share CPU time. This works by having a timer, and the scheduler switches the process after the timer runs out.
-
   Interrupt Handling- If the CPU needs some data (from a file, a user input, etc.) then it can wait for that data to be retrieved, and do other things while it waits for the data. Then, a program called an interrupt handler, and the CPU is interrupted.
-
   Transitions between user mode and kernel mode a context switch is not necessary. This is called a mode transition, and is not a context switcher, however, some Operating Systems may require a context switch at this point.
-
   Executing can depend on the priority of the thread or process, in that case this is called a priority queue.
 
-  Busy waiting (busy looping, or spinning) is telling a CPU to wait to execute, until something that program is waiting on is available. It is generally considered an anti-pattern, since instead of waiting, the CPU can do other tasks while it is waiting.
 
-  What is a lock/mutex? How does it work?  A lock, or mutual exclusion, is a way to limit access to a resource when there are multiple threads of execution.
-
+  <!-- Livelock, deadlock, locks, mutexs, semaphores -->
+  What is a lock/mutex? How does it work?   A lock, or mutual exclusion, is a way to limit access to a resource when there are multiple threads of execution.
   Generally, a process has a lock and executes. Other processes which need resources may request the lock. If the thread waits (spins), then it is called a spin lock. Spin locks are only efficient if the lock is held for a short period of time, since this allows the os not to re-scheduling, which can be expensive. This is a bad practice if the lock is held for a long time or if the thread holding the lock needs something from the locked thread (deadlock)
-
   In is important to have a standard for acquiring the lock, so that you avoid live lock and dead lock.
-
   Lock overhead- the resources used for initializing a lock, memory space, CPU time to initialize and destroy locks, time for acquiring and releasing locks.
-
   Lock Contention- A process or thread tries to acquire a lock held by another. You can avoid this by making locks more fine grained (locking a row rather than a table, or locking a cell rather than a row).
-
   deadlock- at least two tasks are waiting for a lock that the other task holds. if nothing changes, this will cause the process to wait forever.
-
   Coarse lock granularity (a small number of locks, each protecting large segments of data) results in less lock overhead, but worse performance when processes run concurrently (more lock contention).   Fine lock granularity increases the overhead of the locks, but reduces the lock contention.
-
   Pessimistic locking- If someone wants to update some data, then no one else can touch the data until the current user is finished. This can cause long waits. This should be used when the cost of protecting data through locks is less than the cost of rolling back transactions. It is not appropriate for Web application development.
-
   Optimistic locking- Is where users update concurrently, and if the information is incorrect then some updates will fail. This can be a bad implementation when many users are going to repeatedly update a piece of information, causing many users to get failed updates.
-
   A race condition, or a race hazard, is when two things are operating at the same time even though a programmer did not intend them to. One process was supposed to wait on one of the other ones, and now they are both trying to finish meaning the data will be overwritten by whichever process finishes first, even though they were supposed to finish concurrently.
-
   Mutual exclusion requires that one thread of executing never enters its critical section at the same time another concurrent thread enters its own critical section.
-
   A critical section is a shared resource between programs. It cannot be executed by more than one process or program, and examples include a data structure, a peripheral device, or a network connection that would not work if operated by concurrent access.
 
   Lock free versus wait free
   An algorithm in which at least a single thread can progress all the time while other threads might starve is lock free.
-
   Wait free- An algorithm which promises that all the threads can progress all the time.
-
   Obstruction free is an algorithm that promises any thread can progress if executed in isolation.
-
   What is deadlock? Live lock?
-
   A deadlock is when two, or more, locked resources are required by two different threads or locks. Both need the others resources to continue, and cannot move until the resources are relinquished.
-
   Dead lock requires four conditions:
   	First - (Mutual Exclusion) Only one process/thread can use a resource at a time
   	Second - (Hold and wait) a process is currently holding at least one resource and is requesting other resources which are being held by other processes.
   	Third - (No preemption) a resource can only be related voluntarily by the process holding it.
   	Fourth - (Circular wait) a process is waiting for a resource held by another process.
-
   Most ways to avoid deadlock work by preventing the fourth condition. Some large ways to avoid deadlock
-
   Detection- deadlocks can occur, and when the system detects and restarts one or more processes. These corrections can look like process termination or resource preemption.
-
-  	Process termination is aborting one or more processes, which can be expensive since some data has to be recalculated. You can choose to abort one process at a time until deadlock is resolved, but this means the system must continually recalculate if deadlock is still in existence (expensive).
-
-  	Resource preemption- resources can be preempted until the deadlock is broken.
-
+  Process termination is aborting one or more processes, which can be expensive since some data has to be recalculated. You can choose to abort one process at a time until deadlock is resolved, but this means the system must continually recalculate if deadlock is still in existence (expensive).
+  Resource preemption- resources can be preempted until the deadlock is broken.
   Prevention- Remove the mutual exclusion component (impossible in resources that cannot be spooled*). Hold and wait resource can be resolved by processes having all resources requested at once, however this can be inefficient since they may not need resources for a while, and this results in holding resources for a long time.
+  No preemption, may not work since it may cause thrashing or rollbacks which can be expensive. Finally, the circular wait condition involves disabling interrupts during critical sections and use a hierarchy to determine the ordering of resources.
+  Livelock is like deadlock except the processes required are constantly changing. Livelock is often an algorithm attempting to resolve deadlock, but not doing it properly. Livelock can be avoided by ensuring that one process takes action.
 
   (Spooling is when a process must communicate with a slow peripheral (like a printer) and allows the program to hand off work to be done and then proceed to other tasks. The spooler maintains an orderly sequence of jobs and feeds data at a rate the peripheral can handle.
-
   Conversely for slow input (i.e. a card reader), the spooler can do batch processing, where it waits to do jobs until the input information is available. )
-
-  No preemption, may not work since it may cause thrashing or rollbacks which can be expensive. Finally, the circular wait condition involves disabling interrupts during critical sections and use a hierarchy to determine the ordering of resources.
-
   Thrashing is when a computer is rapidly exchanging data between data on the disk an data in memory (also known as paging). This can cause performance to degrade or collapse.
 
-  Livelock is like deadlock except the processes required are constantly changing. Livelock is often an algorithm attempting to resolve deadlock, but not doing it properly. Livelock can be avoided by ensuring that one process takes action.
   </p>
 <p>
+  <!--HDD versus Solid State  -->
   Disk storage can be a HDD (hard disk drive) and floppy disk drive (FDD), along with various optical disc drives.
-
   Solid state drive have no moving parts unlike HDDs or floppy disks, which contain spinning disks and movable read and write heads.
-
-  Solid state are better in terms of silently running, lower access time, resistant to physical shock, and have lower latency, but are nighter in price.
+  Solid state are better in terms of silently running, lower access time, resistant to physical shock, and have lower latency, but are higher in price.
 
   RAID (redundant array of independent disks) storage virtualization technology that combines physical disk drive components with data redundancy, performance improvements, or both. The way data is stored is determined by the RAID level, 0 or 1, with each schema providing a balance of reliability, availability, performance, and capacity.
 
+  <!-- CDNs -->
   CDN/Why they are used
-
   Content Delivery Network (CDN) a globally distributed network of proxy servers deployed in data centers. Websites pay CDNs, who in turn pay ISPs. Websites pay CDNs to serve up their content, CDNs pay ISPs to allow have their servers in their data centers.
-
   Why? They minimize the distance between the visitor and the website server. The CDN stores a cached version of its content across multiple geographical locations. Because CDN Servers sit on the outside of backend servers, they can also offer website security and load balancing.
-
   CDNs are used to minimize latency by building optimal connectivity  
   CDN Caching - Ideal for static pages (templates, videos, music, css files, etc.) CDN caching can reduce bandwidth costs by not having the server have to repeatedly serve the same content. Improve user experience because users can access more quickly. They also ensure reliable content delivery because CDNs have traffic capacity which may not exist by self hosted websites.
-
   How does CDN caching work? Web developer use HTTP cache headers to make cacheable web content, and set cache durations.
 
+  <!--Client Side vs Server Side rendering, needs more research  -->
   Client side v.s. server side rendering
   Server side is preferable due to being visible to search engines, pages load faster, and maintains pages as documents. Server side is faster initially, but slower on subsequent page loads  Client side is good because you don’t need to request the whole web page, and allows only portions of the webpage to be updated.
 
-  MORE RESEARCH
-
-  UI vs UX
+  <!-- UI vs UX -->
   UI is User Interface while UX is User experience. UI is the skin, the presentation. UX is the organs, measuring and optimizing input.
-
   UX existed before the digital space, known as market research. UX designers often analyze competitors, customers, strategies, and content. UX designers need to do marketing, designing, and project management.
-
   UI the means by which the user and computer system interact. UI designers do customer analysis, design, and branding. User interface is the process of visually guiding the user through the product’s interface.
    
   Redis- open source software project that implements data structure servers.
 
+  <!--Databases  -->
   Computer cluster consists of a set of loosely or tightly connected computers that work together so that they can be viewed as a single system. Computer clusters have each node perform the same tasks, controlled and scheduled by the software.
-
   NoSQL database are commonly used in big data and real-time web applications. They have a simple design, simpler horizontal scaling to clusters (this is a problem for relational databases), have finer control over availability. The data structures used by NoSQL are more flexible than relational database tables.
-
   NoSQL has not been adopted because there is an inability to perform ad-hoc joins across tables, lack of standardized interfaces, and investments in relational databases. NoSQL offers “eventual consistency” which might result in stale reads, along with some data loss.
 
+  <!--SPAs  -->
   SPA trade offs- SEO and page loading.
 
-
+  <!--  Cap Theorem-->
   Cap Theorem
   It is impossible for a distributed system to provide consistency, availability, partition tolerance.
-
   Consistency- Every read receives the most recent write, or an error.
-
   Availability- Every request receives a response, without guarantee that it contains the most recent write.
-
   Partition tolerance- system continues to operate despite an arbitrary number of messages being dropped or delayed.
 
 </p>
