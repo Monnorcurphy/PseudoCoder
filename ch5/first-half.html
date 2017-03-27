@@ -55,13 +55,34 @@
   <div class= 'right-text'>
 
   <h2>Architecture</h2>
-  <h4>Idk what is going here yet</h4>
+  <h4></h4>
   <p>
 
+    Components located on connected (networked) computers communicate and coordinate their actions by passing messages. These components interact to achieve a common goal. Significant characteristics include concurrency of components, lack of a global clock, and independent failure of components.
+    Distributed program is a distributed system that is run by a computer program. In distributed programming it is common for tasks to be partitioned out  and solved by one, or more, computers.
+    Distributed used to mean computers that were spread out in a geographic area, but today can mean autonomous processes that run on the same computer, and interact with each other by message passing.
+    Concurrent computing, parallel computing and distributed computing have a lot of overlap and no clear distinction. A system could be described as parallel and distributed. Distributed computing is a loosely coupled form of parallel computing (parallel computing- tight coupling of distributed).
+    Parallel computing- all processors have access to a shared memory to exchange information.
+    Distributed computing- each processor has its own private memory, information is exchanged by passing messages between processors.
+
+    Architectures- still distributed computing
+    Low level- CPUs are connected via some sort of network, be it printed onto a circuit board or made up of loosely coupled devices.
+    Higher level- A communication system must interconnect these processes running on those CPUs.
+    Distributed programming falls into some of these categories:
+    Client-server- clients contact the server for data then format and display int to the users. Permanent changes are committed back to the server.
+    In this model work is done by a server, and is requested by a client. The server does the work and the client initiates the contact. Examples email, network printing, the world wide web.
+    Three-tier- Most web applications. Architectures that move the client intelligence to a middle client. Simplifies application deployment.
+    N-tier- refer to web applications which further forward their requests to enterprise services. This lead to the success of application servers.
+    multi-tier architecture - client server architecture presentation, application processing, and data management functions are physically separated. Three tier is the most common.
+    Example- web development such as e-commerce website. A front end web server which delivers content. A middle content processing and generation level application server (Rails, Django, Flask). Then a backend database or data store, made up of data sets and database management systems software, which provides access to the data.
+    Peer to Peer- no special machines that provide a service or manage the network resources. Everyone is considered equal in doing the task. Uses include file sharing, instant and voice communication.
+    Example-  Skype, Napster
+    Distributed systems are more reliable. Many low end computers provide a lower chance of failure than one high end computer.
+  
 
 
   </p>
-  
+
   </div>
 </div>
 </body>
