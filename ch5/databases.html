@@ -1,0 +1,226 @@
+<head>
+  <title>PseudoCoder</title>
+  <link rel="icon" type="image/png" href="http://res.cloudinary.com/dqiuefax1/image/upload/v1490361371/dd4248443aa6d679087376ec9749bcae_brain-clip-art-at-vector-clip-brain-animated-clipart_600-455_ub4afn.png">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href=".././assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/architechture.css">
+  <link rel="stylesheet" type="text/css" href=".././assets/css/navigation.css">
+
+</head>
+<body>
+<div>
+  <div class = 'main'>
+    <div class='table-of-contents'>
+      <nav id="contents">
+        <ul class="links">
+
+          <div class="support">
+          <li class="Chapter white">
+            <a href="../index.html" class='bright main-button'>Main</a>
+          </li>
+            <li class="Chapter white"><a href="../about.html" class='bright main-button'>About</a></li>
+          </div>
+          <li class="Chapter yellow">
+            <a href="../ch1/efficiency.html" class='bright'>Ch 1: Efficiency</a>
+          </li>
+
+          <li class="Chapter green"><a href="../ch2/data_structures.html">Ch 2: Data Structures </a></li>
+
+          <li class="Chapter blue"><a href="../ch3/searching-sorting.html">Ch 3: Searching/sorting</a></li>
+          <li class="Chapter red"><a href="../ch4/object-oriented.html">Ch 4: Object Oriented</a></li>
+
+          <li class="Chapter orange"><a href="architechture.html" class='bright'>Ch 5: Architechture</a></li>
+
+              <li class="Chapter orange subset">
+                <a href="terminology.html" class='bright'>5.1 Terminology</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="internet.html" class='bright'>5.2 The Internet</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="distributed.html" class='bright'>5.3 Distributed Systems</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="databases.html" class='bright'>5.4 Server</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="system-design.html" class='bright'>5.5 System Design</a>
+              </li>
+              <li class="Chapter orange subset">
+                <a href="summary.html" class='bright'>5.6 Summary</a>
+              </li>
+
+          <li class="Chapter purple"><a href="">Glossary</a></li>
+
+          </ul>
+      </nav>
+    </div>
+  <div class= 'right-text'>
+
+  <h2>Rendering, Servers, UX and UI design</h2>
+  <h4>What is a server?</h4>
+  <p> First, you must know what a client is. A client, is software or
+    hardware which uses a server. A sever is just like a server....
+    you know...in a restaurant. It provides data or resources to a client.
+    So, an example may be that you want to look through Amazon for some
+    shoes.
+  </p>
+
+  <p>
+    You go online, and go to Amazon's website. Your browser is a client.
+    The server, one of Amazon's computers, returns to you with the
+    website. You go into the search bar and type in "shaes", because
+    you do not know how to spell. Your browser, again the client, asks
+    the server to retrieve all relevant information on "shaes."
+  </p>
+
+  <p>For most purposes, you can think of a server as a giant machine
+    which holds lots of information. But, we need some way to retrieve
+    this information.
+  </p>
+
+  <h4>Databases- NoSQL vs SQL</h4>
+  <p> SQL, also known as Structured Query Language, is a langauge used
+    for relational database management. WHAAA? Basically, SQL is a
+    programming language that allows you to look up information across
+    different tables. These tables are full of columns, holding information.
+    These columns tie to other columns in the database, they are "related."
+  </p>
+
+  <p>
+    SQL and relatonal databases are common, they are very rigid. They
+    make data storage easy if you know what you need to store, and
+    how information is related.
+  </p>
+
+  <p>Why you use a relational database:
+    <ul>
+      <li>Reduced anomalies</li>
+      <li>Database integrity</li>
+      <li>Your data is not changing</li>
+    </ul>
+  </p>
+
+  <p> NoSQL, is exactly what it sounds like, not only SQL, and
+    a non-relational database. These databases are document oriented,
+    which make them more easily accessible if you do not have a data
+    schema yet, or you will be storing things like articles, photos,
+    etc.
+  </p>
+
+  <p>NoSQL database are commonly used in big data and real-time web
+    applications. They have a simple design, simpler horizontal scaling
+    to clusters (this is a problem for relational databases), have finer
+    control over availability. The data structures used by NoSQL are
+    more flexible than relational database tables.
+  </p>
+
+  <p>Why you use a NOSQL database:
+    <ul>
+      <li>Large Volumes of data, with little to no structure</li>
+      <li>Easier cloud computing</li>
+      <li>Easy rapid development</li>
+    </ul>
+  </p>
+
+  <p> If NoSQL has all of these advantages, why has it not been adopted
+    everywhere? Dude. Just. Stop.
+  </p>
+
+  <p>NoSQL has not been adopted because there is an inability to
+    perform ad-hoc joins across tables, lack of standardized interfaces,
+    and investments in relational databases. NoSQL offers “eventual
+    consistency” which might result in stale reads, along with some data
+    loss. Okay....but what did you just say?
+  </p>
+
+  <p> People have put money into relational databases, so it looks bad
+    to switch after their investment. There are not many interfaces out
+    there which make NoSQL easy to adopt. You may have some data which
+    is not up to date when a user sees it, and you may lose some user
+    data.
+  </p>
+
+  <h4>Client vs Server side rendering</h4>
+  <p> When a webpage renders, there are currently two choices for
+    who does the work of doing the work to make the page load. Either,
+    your computer can do the work, or another person's computer does the
+    work. What would be better about these approaches?
+  </p>
+  <p> Can't think of anything? That's okay. I hear that zookeepers
+    make great money. If another person did the work of giving you the
+    page, it means that page would be ready when you got there. Otherwise,
+    your machine is now being told that it has to put this page together,
+    and it was just minding its own busines...
+  </p>
+  <p> Search engines work by crawling the web. Basically they go around,
+    looking at pages, and then determine if that page is relevant in some
+    way. If your machine renders a page, a search engine can't really
+    see it...can it?
+  </p>
+  <p> On the other hand, if you need a page to do something quickly,
+    and your computer has to ask someone else what happens when you
+    drag a slider, or click a button, it is going to take longer. If
+    your computer knew how to handle those situations, then it would be
+    faster and more dynamic.
+  </p>
+
+  <p> That is client versus server side rendering. Server side rendering
+    is better because it can cache webpages, it is faster on the initial
+    page load, and there are no special accomodations for search engine
+    optimization. Client side rendering makes interactivity much easier,
+    and faster. client side is also benefitial because you don’t need to
+    request the whole web page, and allows only portions of the webpage
+    to be updated.
+  </p>
+
+  <h4>Scaling- Up, or out?</h4>
+  <p> If you have a lot of traffic on your website, and you want
+    people to continue to be able to view that site, then the best
+    thing you can do is figure out how you are going to scale. There are
+    two choices, scale up, or scale out.
+  </p>
+
+  <p>Scaling up is the act of taking one machine, and making it as
+    awesome as possible. Buying more RAM, better processors, etc. There
+    is a limit to how "up" you can go. The benefits are, it is much
+    cheaper to have 1 really great machine, than 14 moderate machines.
+    If you hear someone use the word "multi-core concurrency", they
+    are talking about scaling up.
+  </p>
+  <p>Scaling out is getting more computers to handle the problem.   Scaling
+    out is more expensive, since you have to buy more machines, and deal
+    with storage, cooling, etc. However, scaling out is considered to be
+    "safer" since, if one machine fails, you have others to pick up
+    the slack. If you here someone use the term "distributed computing"
+    they are usually talking about scaling out.
+  </p>
+
+  <h4>UX vs UI</h4>
+  <p>In the field of programming, there is often little to no distinction
+    between these two terms. However, I am not a imbecile, so I am going
+    to talk about the difference. UI means user interface, UX means
+    user experience.
+  </p>
+  <p> If a website were a human body, then UI would be the skin, while
+    UX would be the organs. UI is the presentation, UX is optimizations,
+    and measuring. Let us discuss UX first, which existed before computers.
+  </p>
+  <p>UX used to be known as market research. UX designers often analyze
+    competitors, customers, strategies, and content. UX designers
+    need to do marketing, designing, and project management.
+  </p>
+  <p>UI the means by which the user and computer system interact. UI
+    designers do customer analysis, design, and branding. User
+    interface is the process of visually guiding the user through the
+    product’s interface.
+  </p>
+
+  </div>
+</div>
+</body>
+
+
+https://www.upwork.com/hiring/data/sql-vs-nosql-databases-whats-the-difference/
+
+https://www.quora.com/What-are-the-tradeoffs-of-client-side-rendering-vs-server-side-rendering
